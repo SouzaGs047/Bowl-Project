@@ -37,6 +37,13 @@ struct ContentView: View {
         } detail: {
             Text("Select an item")
         }
+        AsyncImage(url: URL(string: "https://yt3.googleusercontent.com/fqVEkuSr9CdD3yi8gDkZYebDE_d5UIuvtb-bvuja_xPQSPu6GSS7ha4c2rcJPNQIvXe6FUqOJvU=s900-c-k-c0x00ffffff-no-rj")) { image in
+            image.resizable()
+        } placeholder: {
+            ProgressView()
+        }
+        .frame(width: 200, height: 200)
+        
     }
 
     private func addItem() {

@@ -53,6 +53,7 @@
 		AE4519802C77D72C00752D40 /* GP4-Challenge-2 */ = {
 			isa = PBXGroup;
 			children = (
+				AEFF3E9A2C792C4200EB08D8 /* model */,
 				AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */,
 				AE4519832C77D72C00752D40 /* ContentView.swift */,
 				AE4519852C77D72C00752D40 /* Item.swift */,
@@ -68,6 +69,13 @@
 				AE45198A2C77D72D00752D40 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AEFF3E9A2C792C4200EB08D8 /* model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
