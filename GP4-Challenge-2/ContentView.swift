@@ -43,7 +43,9 @@ struct ContentView: View {
             ProgressView()
         }
         .frame(width: 200, height: 200)
+        Text("oi")
         
+
     }
 
     private func addItem() {
