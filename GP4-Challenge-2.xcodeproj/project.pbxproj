@@ -20,6 +20,7 @@
 		9F0F77D32C7E4B9300075740 /* CountryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D22C7E4B9300075740 /* CountryResponse.swift */; };
 		9F0F77D52C7E4C7100075740 /* CountriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D42C7E4C7100075740 /* CountriesView.swift */; };
 		9F0F77D72C7E4CFB00075740 /* RandomRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D62C7E4CFB00075740 /* RandomRecipeView.swift */; };
+		9F7CF1A02C7E84B400C5FF18 /* SliderCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F7CF19F2C7E84B400C5FF18 /* SliderCategoriesView.swift */; };
 		9F8EEEBD2C7E75EF00D02E55 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EEEBC2C7E75EF00D02E55 /* RecipeView.swift */; };
 		9F8EEEBF2C7E761300D02E55 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */; };
 		9F8EEEC12C7E76AB00D02E55 /* GenerateRandomRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EEEC02C7E76AB00D02E55 /* GenerateRandomRecipeView.swift */; };
@@ -44,6 +45,7 @@
 		9F0F77D22C7E4B9300075740 /* CountryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryResponse.swift; sourceTree = "<group>"; };
 		9F0F77D42C7E4C7100075740 /* CountriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountriesView.swift; sourceTree = "<group>"; };
 		9F0F77D62C7E4CFB00075740 /* RandomRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeView.swift; sourceTree = "<group>"; };
+		9F7CF19F2C7E84B400C5FF18 /* SliderCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SliderCategoriesView.swift; sourceTree = "<group>"; };
 		9F8EEEBC2C7E75EF00D02E55 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9F8EEEC02C7E76AB00D02E55 /* GenerateRandomRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRandomRecipeView.swift; sourceTree = "<group>"; };
@@ -141,6 +143,7 @@
 				9F8EEEC02C7E76AB00D02E55 /* GenerateRandomRecipeView.swift */,
 				9F8EEEBC2C7E75EF00D02E55 /* RecipeView.swift */,
 				9F0F77CC2C7E4AA000075740 /* CategoriesView.swift */,
+				9F7CF19F2C7E84B400C5FF18 /* SliderCategoriesView.swift */,
 				9F0F77D62C7E4CFB00075740 /* RandomRecipeView.swift */,
 				9F0F77D42C7E4C7100075740 /* CountriesView.swift */,
 				AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */,
@@ -233,6 +236,7 @@
 				9F8EEEC12C7E76AB00D02E55 /* GenerateRandomRecipeView.swift in Sources */,
 				9F0F77D12C7E4B8A00075740 /* CountryModel.swift in Sources */,
 				9F0F77D32C7E4B9300075740 /* CountryResponse.swift in Sources */,
+				9F7CF1A02C7E84B400C5FF18 /* SliderCategoriesView.swift in Sources */,
 				AEC9D4782C794C6A001B05C8 /* FeedView.swift in Sources */,
 				9F0F77D72C7E4CFB00075740 /* RandomRecipeView.swift in Sources */,
 				AE4519822C77D72C00752D40 /* GP4_Challenge_2App.swift in Sources */,

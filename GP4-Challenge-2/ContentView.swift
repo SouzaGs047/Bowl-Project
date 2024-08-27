@@ -15,7 +15,7 @@ struct ContentView: View {
                     .tabItem() {
                         Label("Feed", systemImage: "square") }
                 
-                CategoriesView()
+                SliderCategoriesView()
                     .tabItem() {
                         Label("Categories", systemImage: "scribble") }
                 
