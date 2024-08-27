@@ -77,8 +77,6 @@
 		9F0F77C12C7E460100075740 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */,
-				AE568E2F2C7E5B04002ECCBC /* ContentView.swift */,
 				AE404F752C7E4ED2002EB2CA /* Recipe */,
 				AE41D78A2C7E50370043F100 /* Category */,
 				AE41D78B2C7E504A0043F100 /* Country */,
@@ -138,6 +136,8 @@
 				7BB5CCAE2C7E671A00F9C0F8 /* Components */,
 				9F0F77C12C7E460100075740 /* Model */,
 				AEC9D4772C794C6A001B05C8 /* FeedView.swift */,
+				AE568E2F2C7E5B04002ECCBC /* ContentView.swift */,
+				9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */,
 				9F8EEEC02C7E76AB00D02E55 /* GenerateRandomRecipeView.swift */,
 				9F8EEEBC2C7E75EF00D02E55 /* RecipeView.swift */,
 				9F0F77CC2C7E4AA000075740 /* CategoriesView.swift */,

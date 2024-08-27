@@ -9,9 +9,24 @@ import SwiftUI
 
 struct GenerateRandomRecipeView: View {
     var body: some View {
-        NavigationLink(destination: RandomRecipeView()) {
-            Text("Generate Random Recipe")
-        }
+        NavigationView(content: {
+            VStack{
+                Image("chef")
+                    .resizable()
+                    .aspectRatio(contentMode: .fit)
+                NavigationLink(destination: RandomRecipeView()) {
+                    
+                    Text("Generate Recipe")
+                        .font(.largeTitle)
+                        .padding()
+                        .foregroundStyle(.white)
+                        .background(Color(.orange))
+                        .clipShape(RoundedRectangle(cornerRadius: 50))
+                }
+                
+                Spacer()
+            }.navigationTitle("Recipes")
+        })
     }
 }
 

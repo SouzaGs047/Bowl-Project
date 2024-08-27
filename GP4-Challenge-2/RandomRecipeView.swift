@@ -21,13 +21,8 @@ struct RandomRecipeView: View {
                                 
                         Text(meal.strInstructions)
                             .font(/*@START_MENU_TOKEN@*/.caption2/*@END_MENU_TOKEN@*/)
-                            
-                        
-                            
-                        
+
                         }
-                        
-                
             }
             .navigationTitle("Random Recipe")
         }

@@ -14,31 +14,31 @@ struct Card: View {
     
     var body: some View {
         ZStack(alignment: .leading) {
-                RoundedRectangle(cornerRadius: 25.0)
+            RoundedRectangle(cornerRadius: 25.0)
                 .fill(.thinMaterial)
-                HStack {
-                    AsyncImage(url: recipe.strMealThumb){result in result.image?
-                            .resizable()
-                            .scaledToFill()
-                    }.frame(minWidth: 50, idealWidth: 100, maxWidth: 150, minHeight: 50, idealHeight: 100, maxHeight: 150)
-                        .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                    VStack(alignment: .leading) {
-                        Text(recipe.strMeal)
-                            .font(.subheadline)
-                        Text(recipe.strCategory)
+            HStack {
+                AsyncImage(url: recipe.strMealThumb){result in result.image?
+                        .resizable()
+                        .scaledToFill()
+                }.frame(width: 150,height: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                VStack(alignment: .leading) {
+                    Text(recipe.strMeal)
+                        .font(.subheadline)
+                        .foregroundStyle(.red)
+                    Text(recipe.strCategory)
+                        .font(.caption)
+                    HStack {
+                        Rectangle()
+                            .frame(width: 50,height: 30)
+                        Text(recipe.strArea)
                             .font(.caption)
-                        HStack {
-                            Rectangle()
-                                .frame(minWidth: 30, idealWidth: 50, maxWidth: 50, minHeight: 10, idealHeight: 20, maxHeight: 30)
-                            Text(recipe.strArea)
-                                .font(.caption)
-                        }
-                        
                     }
                 }
+            }
         }
         .padding(.horizontal)
-            .frame(minHeight: 50, idealHeight: 100, maxHeight: 150)
+        .frame(height: 150)
     }
 }
 

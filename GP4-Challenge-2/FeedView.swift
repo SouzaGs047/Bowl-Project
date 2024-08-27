@@ -8,11 +8,16 @@ struct FeedView: View {
         NavigationView {
             ScrollView {
                 ForEach(recipeModel.recipesArray, id: \.idMeal) { meal in
-                    Card(recipe: meal)
-                }.listRowBackground(Color.secondary)
+                    
+                    NavigationLink(destination: RecipeView(recipe: meal)){
+                        Card(recipe: meal)
+                    
+                    }.buttonStyle(PlainButtonStyle())
+                    
+                    
+                }
             .navigationTitle("Recipes")
             .searchable(text: $searchTerm, prompt: "Search recipe")
-        
             .onChange(of: searchTerm) { _ in
                 recipeModel.fetchBySearch(nameRecipe: searchTerm)
             }
