@@ -3,33 +3,31 @@ import SwiftUI
 struct RandomRecipeView: View {
     @StateObject var randomRecipeModel = RecipeModel()
     
-    
     var body: some View {
         NavigationView {
-            List {
                 ForEach(randomRecipeModel.recipesArray, id: \.idMeal) { meal in
-                    VStack {
-                        HStack{
+                    VStack(alignment: .leading) {
                             AsyncImage(url: meal.strMealThumb){result in result.image?
                                     .resizable()
-                                    .scaledToFill()
-                            }.frame(width: 100, height: 100)
+                                    .scaledToFit()
+                            }.padding(.leading, 20.0).frame(width: 300)
                             
-                            VStack(alignment: .leading){
-                                Text(meal.strMeal)
-                                    .font(.subheadline)
-                                Text(meal.strCategory)
+                            Text(meal.strMeal)
+                                .font(.subheadline)
+                            
+                                Text("\(meal.strCategory) • \(meal.strArea)")
                                     .font(.caption)
                                     .foregroundStyle(Color(.gray))
-                                Text(meal.strArea)
-                                    .font(.caption)
-                                    .foregroundStyle(Color(.gray))
-                            }
+                                
+                        Text(meal.strInstructions)
+                            .font(/*@START_MENU_TOKEN@*/.caption2/*@END_MENU_TOKEN@*/)
                             
-                        }
+                        
+                            
+                        
                         }
                         
-                }
+                
             }
             .navigationTitle("Random Recipe")
         }
