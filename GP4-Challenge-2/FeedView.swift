@@ -12,6 +12,7 @@ struct FeedView: View {
                 }.listRowBackground(Color.secondary)
             .navigationTitle("Recipes")
             .searchable(text: $searchTerm, prompt: "Search recipe")
+        
             .onChange(of: searchTerm) { _ in
                 recipeModel.fetchBySearch(nameRecipe: searchTerm)
             }
