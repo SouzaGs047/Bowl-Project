@@ -13,7 +13,7 @@ struct GP4_Challenge_2App: App {
 
     var body: some Scene {
         WindowGroup {
-            ChamadaAPIView()
+            FeedView()
         }
 
     }
