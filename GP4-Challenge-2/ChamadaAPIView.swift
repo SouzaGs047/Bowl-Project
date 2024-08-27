@@ -1,23 +1,16 @@
 import SwiftUI
 
 // Define the structure to match the API response
-struct MealResponse: Hashable, Codable {
-    let meals: [Meal]
+struct RecipeResponse: Hashable, Codable {
+    let meals: [Recipe]
 }
 
-struct Meal: Hashable, Codable {
-    let idMeal: String
-    let strMeal: String
-    let strCategory: String
-    let strArea: String
-    let strMealThumb: URL
-}
 
-class MealModel: ObservableObject {
-    @Published var mealsArray: [Meal] = []
+class RecipeModel: ObservableObject {
+    @Published var recipesArray: [Recipe] = []
     
-    func fetch() {
-        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata") else {
+    func fetchBySearch() {
+        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=A") else {
             return
         }
         
@@ -28,9 +21,9 @@ class MealModel: ObservableObject {
             
             // Decode JSON response
             do {
-                let mealResponse = try JSONDecoder().decode(MealResponse.self, from: data)
+                let recipeResponse = try JSONDecoder().decode(RecipeResponse.self, from: data)
                 DispatchQueue.main.async {
-                    self?.mealsArray = mealResponse.meals
+                    self?.recipesArray = recipeResponse.meals
                 }
             } catch {
                 print(error)
@@ -38,15 +31,39 @@ class MealModel: ObservableObject {
         }
         task.resume()
     }
+    
+    func fetchRandom() {
+        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/random.php") else {
+            return
+        }
+        
+        let task = URLSession.shared.dataTask(with: url) { [weak self] data, _, error in
+            guard let data = data, error == nil else {
+                return
+            }
+            
+            // Decode JSON response
+            do {
+                let recipeResponse = try JSONDecoder().decode(RecipeResponse.self, from: data)
+                DispatchQueue.main.async {
+                    self?.recipesArray = recipeResponse.meals
+                }
+            } catch {
+                print(error)
+            }
+        }
+        task.resume()
+    }
+
 }
 
 struct ChamadaAPIView: View {
-    @StateObject var mealModel = MealModel()
+    @StateObject var recipeModel = RecipeModel()
     
     var body: some View {
         NavigationView {
             List {
-                ForEach(mealModel.mealsArray, id: \.idMeal) { meal in
+                ForEach(recipeModel.recipesArray, id: \.idMeal) { meal in
                     VStack {
                         HStack{
                             AsyncImage(url: meal.strMealThumb){result in result.image?
@@ -68,7 +85,7 @@ struct ChamadaAPIView: View {
             .navigationTitle("Refeições")
         }
         .onAppear {
-            mealModel.fetch()
+            recipeModel.fetchBySearch()
         }
     }
 }
