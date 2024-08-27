@@ -10,8 +10,8 @@ import Foundation
 class RecipeModel: ObservableObject {
     @Published var recipesArray: [Recipe] = []
     
-    func fetchBySearch() {
-        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=potato") else {
+    func fetchBySearch(nameRecipe:String) {
+        guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/search.php?s=\(nameRecipe)") else {
             return
         }
         

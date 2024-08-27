@@ -33,7 +33,7 @@ struct FeedView: View {
             .navigationTitle("Recipes")
         }
         .onAppear {
-            recipeModel.fetchBySearch()
+            recipeModel.fetchBySearch(nameRecipe: "biata")
         }
     }
 }
