@@ -1,6 +1,6 @@
 import SwiftUI
 
-struct FeedView: View {
+struct FavoritesView: View {
     @StateObject var recipeModel = RecipeModel()
     @State private var searchTerm = ""
     
@@ -33,8 +33,8 @@ struct FeedView: View {
                     }
                 }
             }
-            .navigationTitle("Recipes")
-            .searchable(text: $searchTerm, prompt: "Search recipe")
+            .navigationTitle("Favorites")
+            .searchable(text: $searchTerm, prompt: "Search favorites")
         
             .onChange(of: searchTerm) { _ in
                 recipeModel.fetchBySearch(nameRecipe: searchTerm)
@@ -44,5 +44,5 @@ struct FeedView: View {
 }
 
 #Preview {
-    FeedView()
+    FavoritesView()
 }
