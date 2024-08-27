@@ -59,17 +59,41 @@
 		9F0F77C12C7E460100075740 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F0F77BF2C7E45C800075740 /* Recipe.swift */,
+				AE404F752C7E4ED2002EB2CA /* Recipe */,
+				AE41D78A2C7E50370043F100 /* Category */,
+				AE41D78B2C7E504A0043F100 /* Country */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		AE404F752C7E4ED2002EB2CA /* Recipe */ = {
+			isa = PBXGroup;
+			children = (
 				9F0F77C22C7E461100075740 /* RecipeModel.swift */,
+				9F0F77BF2C7E45C800075740 /* Recipe.swift */,
 				9F0F77C42C7E49C900075740 /* RecipeResponse.swift */,
+			);
+			path = Recipe;
+			sourceTree = "<group>";
+		};
+		AE41D78A2C7E50370043F100 /* Category */ = {
+			isa = PBXGroup;
+			children = (
 				9F0F77C62C7E49E000075740 /* Category.swift */,
 				9F0F77C82C7E49EB00075740 /* CategoryModel.swift */,
 				9F0F77CA2C7E49F500075740 /* CategoryResponse.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		AE41D78B2C7E504A0043F100 /* Country */ = {
+			isa = PBXGroup;
+			children = (
 				9F0F77CE2C7E4B8100075740 /* Country.swift */,
 				9F0F77D02C7E4B8A00075740 /* CountryModel.swift */,
 				9F0F77D22C7E4B9300075740 /* CountryResponse.swift */,
 			);
-			path = Model;
+			path = Country;
 			sourceTree = "<group>";
 		};
 		AE4519752C77D72C00752D40 = {
