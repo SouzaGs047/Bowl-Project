@@ -13,5 +13,6 @@ struct Recipe: Hashable, Codable {
     let strMeal: String
     let strCategory: String
     let strArea: String
+    let strInstructions : String
     let strMealThumb: URL
 }
