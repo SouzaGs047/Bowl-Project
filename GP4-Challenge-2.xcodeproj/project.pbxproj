@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7BB5CCB02C7E674C00F9C0F8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB5CCAF2C7E674C00F9C0F8 /* Card.swift */; };
 		9F0F77C02C7E45C800075740 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77BF2C7E45C800075740 /* Recipe.swift */; };
 		9F0F77C32C7E461100075740 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77C22C7E461100075740 /* RecipeModel.swift */; };
 		9F0F77C52C7E49C900075740 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77C42C7E49C900075740 /* RecipeResponse.swift */; };
@@ -27,6 +28,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7BB5CCAF2C7E674C00F9C0F8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9F0F77BF2C7E45C800075740 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9F0F77C22C7E461100075740 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		9F0F77C42C7E49C900075740 /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
@@ -58,6 +60,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		7BB5CCAE2C7E671A00F9C0F8 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				7BB5CCAF2C7E674C00F9C0F8 /* Card.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
 		9F0F77C12C7E460100075740 /* Model */ = {
 			isa = PBXGroup;
 			children = (
@@ -117,6 +127,7 @@
 		AE4519802C77D72C00752D40 /* GP4-Challenge-2 */ = {
 			isa = PBXGroup;
 			children = (
+				7BB5CCAE2C7E671A00F9C0F8 /* Components */,
 				9F0F77C12C7E460100075740 /* Model */,
 				AEC9D4772C794C6A001B05C8 /* FeedView.swift */,
 				9F0F77CC2C7E4AA000075740 /* CategoriesView.swift */,
@@ -223,6 +234,7 @@
 				9F0F77CB2C7E49F500075740 /* CategoryResponse.swift in Sources */,
 				9F0F77CF2C7E4B8100075740 /* Country.swift in Sources */,
 				9F0F77C72C7E49E000075740 /* Category.swift in Sources */,
+				7BB5CCB02C7E674C00F9C0F8 /* Card.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
