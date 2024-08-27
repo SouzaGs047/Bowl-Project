@@ -10,7 +10,6 @@
 		AE4519822C77D72C00752D40 /* GP4_Challenge_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */; };
 		AE4519882C77D72D00752D40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4519872C77D72D00752D40 /* Assets.xcassets */; };
 		AE45198B2C77D72D00752D40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE45198A2C77D72D00752D40 /* Preview Assets.xcassets */; };
-		AEC9D4762C793E52001B05C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC9D4752C793E52001B05C8 /* ContentView.swift */; };
 		AEC9D4782C794C6A001B05C8 /* ChamadaAPIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = AEC9D4772C794C6A001B05C8 /* ChamadaAPIView.swift */; };
 /* End PBXBuildFile section */
 
@@ -19,7 +18,6 @@
 		AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GP4_Challenge_2App.swift; sourceTree = "<group>"; };
 		AE4519872C77D72D00752D40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		AE45198A2C77D72D00752D40 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
-		AEC9D4752C793E52001B05C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		AEC9D4772C794C6A001B05C8 /* ChamadaAPIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChamadaAPIView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -58,7 +56,6 @@
 				AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */,
 				AE4519872C77D72D00752D40 /* Assets.xcassets */,
 				AE4519892C77D72D00752D40 /* Preview Content */,
-				AEC9D4752C793E52001B05C8 /* ContentView.swift */,
 			);
 			path = "GP4-Challenge-2";
 			sourceTree = "<group>";
@@ -150,7 +147,6 @@
 			files = (
 				AEC9D4782C794C6A001B05C8 /* ChamadaAPIView.swift in Sources */,
 				AE4519822C77D72C00752D40 /* GP4_Challenge_2App.swift in Sources */,
-				AEC9D4762C793E52001B05C8 /* ContentView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
