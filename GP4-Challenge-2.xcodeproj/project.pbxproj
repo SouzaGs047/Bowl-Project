@@ -138,10 +138,12 @@
 		AE4519802C77D72C00752D40 /* GP4-Challenge-2 */ = {
 			isa = PBXGroup;
 			children = (
+				9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */,
 				AEC06A652C7F9416005D2B27 /* Views */,
 				7BB5CCAE2C7E671A00F9C0F8 /* Components */,
 				9F0F77C12C7E460100075740 /* Models */,
 				AE568E2F2C7E5B04002ECCBC /* ContentView.swift */,
+				AEC9D4772C794C6A001B05C8 /* FeedView.swift */,
 				9F8EEEBC2C7E75EF00D02E55 /* RecipeView.swift */,
 				9F0F77D42C7E4C7100075740 /* CountriesView.swift */,
 				AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */,
@@ -191,7 +193,6 @@
 		AEC06A682C7F94FC005D2B27 /* FavoritesViews */ = {
 			isa = PBXGroup;
 			children = (
-				9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */,
 			);
 			path = FavoritesViews;
 			sourceTree = "<group>";
@@ -199,7 +200,6 @@
 		AEC06A692C7F9521005D2B27 /* FeedViews */ = {
 			isa = PBXGroup;
 			children = (
-				AEC9D4772C794C6A001B05C8 /* FeedView.swift */,
 			);
 			path = FeedViews;
 			sourceTree = "<group>";
