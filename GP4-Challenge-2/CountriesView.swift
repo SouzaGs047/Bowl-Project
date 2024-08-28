@@ -23,6 +23,7 @@ struct CountriesView: View {
                 }
             }
             .navigationTitle("Countries")
+            
         }
         .onAppear {
             countryModel.fetch()
