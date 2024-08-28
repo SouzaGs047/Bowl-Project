@@ -36,8 +36,8 @@ struct FavoritesView: View {
             .navigationTitle("Favorites")
             .searchable(text: $searchTerm, prompt: "Search favorites")
         
-            .onChange(of: searchTerm) { _ in
-                recipeModel.fetchBySearch(nameRecipe: searchTerm)
+            .onAppear() {
+                recipeModel.fetchBySearch(nameRecipe: "A")
             }
         }
     }

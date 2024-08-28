@@ -10,9 +10,13 @@ import SwiftUI
 struct SliderCategoriesView: View {
     @StateObject var categoryModel = CategoryModel()
     @StateObject var countryModel = CountryModel()
-
-
     @State var selectedTab : Int = 1
+    
+    let columns = [
+        GridItem(.flexible()),
+        GridItem(.flexible())
+    ]
+    
     var body: some View {
         VStack {
             HStack {
@@ -23,62 +27,54 @@ struct SliderCategoriesView: View {
                         .foregroundColor(selectedTab == 1 ? .blue : .black)
                 })
                 
-           
                 Text (" | ")
                 
-                    
+                Button(action: {
+                    selectedTab = 2
+                }, label: {
+                    Text("Countries")
+                        .foregroundColor(selectedTab == 2 ? .blue : .black)
+                })
                 
-                    Button(action: {
-                        selectedTab = 2
-                    }, label: {
-                        Text("Countries")
-                            .foregroundColor(selectedTab == 2 ? .blue : .black)
-                    })
-                 
                 
             }
             
             TabView(selection: $selectedTab,
                     content:  {
                 
+                //MARK: CATEGORIES
                 List {
                     ForEach(categoryModel.categoriesArray, id: \.idCategory) { category in
-                        VStack {
-                            HStack{
-                                AsyncImage(url: category.strCategoryThumb){result in result.image?
-                                        .resizable()
-                                        .scaledToFill()
-                                }.frame(width: 100, height: 100)
-                                
-                                Spacer()
-                                
-                                VStack(alignment: .leading){
-                                    Text(category.strCategory)
-                                        .font(.subheadline)
-                                }
-                                
+                        NavigationLink(destination: CategoryFeedView(category: category)) {
+                            CategoryCardView(category: category)
+                        }
+                    }
+                }
+                .tabItem {
+                }
+                .tag(1)
+                
+                
+                
+                //MARK: COUNTRIES
+                
+                
+                
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 25) {
+                        ForEach(countryModel.countriesArray, id: \.self) { country in
+                            NavigationLink(destination: CountryFeedView(country: country)) {
+                                CountryCardView(country: country, flag: "Flag")
                             }
                         }
                         
                     }
+                    .padding(.horizontal, 25.0)
+                    .padding(.top, 10)
+                }.tabItem {
                 }
-                    .tabItem {
-                    }
-                    .tag(1)
-            
-               
-                
-            List {
-                ForEach(countryModel.countriesArray, id: \.self) { country in
-                    VStack {
-                        Text(country.strArea)
-                        }
-                        
-                }
-            } .tabItem {
-            }
-            .tag(2)
-    })        .tabViewStyle(.page(indexDisplayMode: .never))
+                .tag(2)
+            })        .tabViewStyle(.page(indexDisplayMode: .never))
             
             
             
