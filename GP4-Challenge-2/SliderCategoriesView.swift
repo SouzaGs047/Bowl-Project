@@ -43,11 +43,11 @@ struct SliderCategoriesView: View {
                     content:  {
                 
                 //MARK: CATEGORIES
-                List {
+                ScrollView {
                     ForEach(categoryModel.categoriesArray, id: \.idCategory) { category in
                         NavigationLink(destination: CategoryFeedView(category: category)) {
                             CategoryCardView(category: category)
-                        }
+                        }.buttonStyle(PlainButtonStyle())
                     }
                 }
                 .tabItem {
@@ -65,7 +65,7 @@ struct SliderCategoriesView: View {
                         ForEach(countryModel.countriesArray, id: \.self) { country in
                             NavigationLink(destination: CountryFeedView(country: country)) {
                                 CountryCardView(country: country, flag: "Flag")
-                            }
+                            }.buttonStyle(PlainButtonStyle())
                         }
                         
                     }

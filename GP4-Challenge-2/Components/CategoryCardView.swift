@@ -12,6 +12,7 @@ struct CategoryCardView: View {
     var body: some View {
         VStack {
             HStack{
+                Spacer()
                 AsyncImage(url: category.strCategoryThumb){result in result.image?
                         .resizable()
                         .scaledToFill()
@@ -23,10 +24,10 @@ struct CategoryCardView: View {
                     Text(category.strCategory)
                         .font(.subheadline)
                 }
-                
+                Spacer()
             }
-        }
-
+        }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
+        
     }
 }
 

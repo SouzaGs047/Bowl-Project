@@ -34,7 +34,6 @@ struct FavoritesView: View {
                 }
             }
             .navigationTitle("Favorites")
-            .searchable(text: $searchTerm, prompt: "Search favorites")
         
             .onAppear() {
                 recipeModel.fetchBySearch(nameRecipe: "A")

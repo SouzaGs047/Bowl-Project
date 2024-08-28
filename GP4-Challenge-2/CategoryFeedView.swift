@@ -24,7 +24,7 @@ struct CategoryFeedView: View {
                             VStack(alignment: .leading) {
                                 Text(recipe.strMeal)
                                     .font(.subheadline)
-                                    .foregroundStyle(.red)
+                                    .foregroundStyle(.black)
                                 
                             }
                         }
