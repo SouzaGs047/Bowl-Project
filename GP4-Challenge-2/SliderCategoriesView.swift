@@ -47,6 +47,7 @@ struct SliderCategoriesView: View {
                     ForEach(categoryModel.categoriesArray, id: \.idCategory) { category in
                         NavigationLink(destination: CategoryFeedView(category: category)) {
                             CategoryCardView(category: category)
+                                .padding(.vertical)
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
@@ -64,9 +65,8 @@ struct SliderCategoriesView: View {
                     LazyVGrid(columns: columns, spacing: 25) {
                         ForEach(countryModel.countriesArray, id: \.self) { country in
                             NavigationLink(destination: CountryFeedView(country: country)) {
-                                if (country.strArea != "Unknown") {
                                     CountryCard(country: country.strArea, flag: country.strArea)
-                                }
+                                    .padding(.vertical)
                             }.buttonStyle(PlainButtonStyle())
                         }
                         

@@ -10,6 +10,7 @@
 		7B772C172C80E847009E8DD5 /* CountryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B772C162C80E847009E8DD5 /* CountryCard.swift */; };
 		7B772C192C80E890009E8DD5 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B772C182C80E890009E8DD5 /* Ingredients.swift */; };
 		7B772C1B2C80E8A8009E8DD5 /* CountryAndCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B772C1A2C80E8A8009E8DD5 /* CountryAndCat.swift */; };
+		7B772C1D2C810AB5009E8DD5 /* teste.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B772C1C2C810AB5009E8DD5 /* teste.swift */; };
 		7BB5CCB02C7E674C00F9C0F8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB5CCAF2C7E674C00F9C0F8 /* Card.swift */; };
 		9F0F77C02C7E45C800075740 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77BF2C7E45C800075740 /* Recipe.swift */; };
 		9F0F77C32C7E461100075740 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77C22C7E461100075740 /* RecipeModel.swift */; };
@@ -45,6 +46,7 @@
 		7B772C162C80E847009E8DD5 /* CountryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryCard.swift; sourceTree = "<group>"; };
 		7B772C182C80E890009E8DD5 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		7B772C1A2C80E8A8009E8DD5 /* CountryAndCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryAndCat.swift; sourceTree = "<group>"; };
+		7B772C1C2C810AB5009E8DD5 /* teste.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = teste.swift; sourceTree = "<group>"; };
 		7BB5CCAF2C7E674C00F9C0F8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
 		9F0F77BF2C7E45C800075740 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9F0F77C22C7E461100075740 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
@@ -187,6 +189,7 @@
 				AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */,
 				AE4519872C77D72D00752D40 /* Assets.xcassets */,
 				AE4519892C77D72D00752D40 /* Preview Content */,
+				7B772C1C2C810AB5009E8DD5 /* teste.swift */,
 			);
 			path = "GP4-Challenge-2";
 			sourceTree = "<group>";
@@ -295,6 +298,7 @@
 				9F0F77CB2C7E49F500075740 /* CategoryResponse.swift in Sources */,
 				9F0F77CF2C7E4B8100075740 /* Country.swift in Sources */,
 				9F3D5C172C7FA5EC00801AFC /* CountryRecipe.swift in Sources */,
+				7B772C1D2C810AB5009E8DD5 /* teste.swift in Sources */,
 				7B772C1B2C80E8A8009E8DD5 /* CountryAndCat.swift in Sources */,
 				9F0F77C72C7E49E000075740 /* Category.swift in Sources */,
 				7BB5CCB02C7E674C00F9C0F8 /* Card.swift in Sources */,

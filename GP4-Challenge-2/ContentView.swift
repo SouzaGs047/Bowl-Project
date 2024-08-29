@@ -8,25 +8,37 @@
 import SwiftUI
 
 struct ContentView: View {
+    @State var selectedTab = 1
+    
     var body: some View {
         NavigationStack {
-            TabView {
+            TabView (selection: $selectedTab, content: {
                 FeedView()
                     .tabItem() {
-                        Label("Feed", systemImage: "square") }
+                        VStack{
+                            Image(selectedTab==1 ? "HomeFilled" : "Home")
+                                .resizable()
+                                .frame(width: 1, height: 1)
+                                .scaledToFit()
+                            Text("Feed")
+                        }
+                    }.tag(1)
                 
                 SliderCategoriesView()
                     .tabItem() {
-                        Label("Categories", systemImage: "scribble") }
+                        Image(selectedTab==1 ? "Category" : "CategoryFilled")
+                            .resizable()
+                            .frame(width: 2, height: 2)
+                    }.tag(2)
                 
                 GenerateRandomRecipeView()
                     .tabItem() {
-                        Label("Random", systemImage: "highlighter") }
+                        Label("Random", image: "Random") }
                 
                 FavoritesView()
                     .tabItem() {
-                        Label("Favorites", systemImage: "star") }
-            }
+                        Label("Favorites", image: "Bookmark") }
+            }).tint(.base)
         }
     }
 }

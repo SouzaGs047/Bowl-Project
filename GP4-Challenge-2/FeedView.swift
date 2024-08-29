@@ -11,6 +11,7 @@ struct FeedView: View {
                     
                     NavigationLink(destination: RecipeView(recipe: meal)){
                         Card(recipe: meal)
+                            .padding(.vertical    )
                         
                     }.buttonStyle(PlainButtonStyle())
                     
@@ -39,3 +40,5 @@ struct FeedView: View {
 #Preview {
     FeedView()
 }
+
+

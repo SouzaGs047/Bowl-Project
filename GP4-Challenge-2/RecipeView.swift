@@ -40,6 +40,7 @@ struct RecipeView: View {
 
         
         Text(recipe.strInstructions)
+            .padding()
     }
 }
 
