@@ -16,7 +16,7 @@ struct RecipeView: View {
         }.frame(width: 200, height: 200)
         
         Text(recipe.strMeal)
-        CountryAndCat(country: recipe.strArea, category: recipe.strCategory, image: recipe.strMealThumb )// ajeitar para bandeira do país
+        CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
         Ingredients(ingredient: recipe.strIngredient1, measure: recipe.strMeasure1)
         Ingredients(ingredient: recipe.strIngredient2, measure: recipe.strMeasure2)
         Ingredients(ingredient: recipe.strIngredient3, measure: recipe.strMeasure3)
@@ -44,5 +44,5 @@ struct RecipeView: View {
 }
 
 #Preview {
-    RecipeView(recipe: Recipe(idMeal: "a", strMeal: "nome da receita", strCategory: "categoria", strArea: "país", strInstructions: "a", strMealThumb: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")!, strIngredient1: "a", strIngredient2: "a", strIngredient3: "a", strIngredient4: "a", strIngredient5: "a", strIngredient6: "a", strIngredient7: "a", strIngredient8: "", strIngredient9: "", strIngredient10: "", strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: "", strIngredient16: "", strIngredient17: "", strIngredient18: "", strIngredient19: "", strIngredient20: "", strMeasure1: "", strMeasure2: "a", strMeasure3: "a", strMeasure4: "a", strMeasure5: "a", strMeasure6: "a", strMeasure7: "a", strMeasure8: "", strMeasure9: "", strMeasure10: "", strMeasure11: "", strMeasure12: "", strMeasure13: "", strMeasure14: "", strMeasure15: "", strMeasure16: "", strMeasure17: "", strMeasure18: "", strMeasure19: "", strMeasure20: ""))
+    RecipeView(recipe: Recipe(idMeal: "a", strMeal: "nome da receita", strCategory: "categoria", strArea: "Canadian", strInstructions: "a", strMealThumb: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")!, strIngredient1: "a", strIngredient2: "a", strIngredient3: "a", strIngredient4: "a", strIngredient5: "a", strIngredient6: "a", strIngredient7: "a", strIngredient8: "", strIngredient9: "", strIngredient10: "", strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: "", strIngredient16: "", strIngredient17: "", strIngredient18: "", strIngredient19: "", strIngredient20: "", strMeasure1: "", strMeasure2: "a", strMeasure3: "a", strMeasure4: "a", strMeasure5: "a", strMeasure6: "a", strMeasure7: "a", strMeasure8: "", strMeasure9: "", strMeasure10: "", strMeasure11: "", strMeasure12: "", strMeasure13: "", strMeasure14: "", strMeasure15: "", strMeasure16: "", strMeasure17: "", strMeasure18: "", strMeasure19: "", strMeasure20: ""))
 }

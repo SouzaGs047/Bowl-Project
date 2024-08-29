@@ -4,6 +4,7 @@ struct RecipeByIDView: View {
     @StateObject var recipeModel = RecipeModel()
     let recipeID : String
     
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -14,7 +15,7 @@ struct RecipeByIDView: View {
                     }.frame(width: 200, height: 200)
                     
                     Text(recipe.strMeal)
-                    CountryAndCat(country: recipe.strArea, category: recipe.strCategory, image: recipe.strMealThumb )// ajeitar para bandeira do país
+                    CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
                     Ingredients(ingredient: recipe.strIngredient1, measure: recipe.strMeasure1)
                     Ingredients(ingredient: recipe.strIngredient2, measure: recipe.strMeasure2)
                     Ingredients(ingredient: recipe.strIngredient3, measure: recipe.strMeasure3)
