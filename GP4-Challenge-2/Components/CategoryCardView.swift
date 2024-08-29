@@ -10,24 +10,25 @@ import SwiftUI
 struct CategoryCardView: View {
     let category : Category
     var body: some View {
-        VStack {
-            HStack{
-                Spacer()
+        ZStack(alignment: .leading) {
+            RoundedRectangle(cornerRadius: 25.0)
+                .fill(.thinMaterial)
+            HStack {
                 AsyncImage(url: category.strCategoryThumb){result in result.image?
                         .resizable()
                         .scaledToFill()
-                }.frame(width: 100, height: 100)
-                
-                Spacer()
-                
-                VStack(alignment: .leading){
+                }.frame(width: 150,height: 150)
+                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                VStack(alignment: .leading) {
                     Text(category.strCategory)
-                        .font(.subheadline)
+                        .foregroundStyle(.black)
+                    
+                    
                 }
-                Spacer()
             }
-        }.border(/*@START_MENU_TOKEN@*/Color.black/*@END_MENU_TOKEN@*/)
-        
+            .padding(.horizontal)
+            .frame(height: 150)
+        }
     }
 }
 

@@ -14,11 +14,9 @@ struct CountriesView: View {
     
     var body: some View {
         NavigationView {
-            List {
+            ScrollView {
                 ForEach(countryModel.countriesArray, id: \.self) { country in
-                    VStack {
-                        Text(country.strArea)
-                        }
+                    CountryCard(country: country.strArea)
                         
                 }
             }

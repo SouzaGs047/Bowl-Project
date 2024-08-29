@@ -16,14 +16,33 @@ struct RecipeView: View {
         }.frame(width: 200, height: 200)
         
         Text(recipe.strMeal)
-        Text(recipe.strCategory)
-        Text(recipe.strArea)
-        Text(recipe.strInstructions)
+        CountryAndCat(country: recipe.strArea, category: recipe.strCategory, image: recipe.strMealThumb )// ajeitar para bandeira do país
+        Ingredients(ingredient: recipe.strIngredient1, measure: recipe.strMeasure1)
+        Ingredients(ingredient: recipe.strIngredient2, measure: recipe.strMeasure2)
+        Ingredients(ingredient: recipe.strIngredient3, measure: recipe.strMeasure3)
+        Ingredients(ingredient: recipe.strIngredient4, measure: recipe.strMeasure4)
+        Ingredients(ingredient: recipe.strIngredient5, measure: recipe.strMeasure5)
+        Ingredients(ingredient: recipe.strIngredient6, measure: recipe.strMeasure6)
+        Ingredients(ingredient: recipe.strIngredient7, measure: recipe.strMeasure7)
+        Ingredients(ingredient: recipe.strIngredient8, measure: recipe.strMeasure8)
+        Ingredients(ingredient: recipe.strIngredient9, measure: recipe.strMeasure9)
+        Ingredients(ingredient: recipe.strIngredient10, measure: recipe.strMeasure10)
+        Ingredients(ingredient: recipe.strIngredient11, measure: recipe.strMeasure11)
+        Ingredients(ingredient: recipe.strIngredient12, measure: recipe.strMeasure12)
+        Ingredients(ingredient: recipe.strIngredient13, measure: recipe.strMeasure13)
+        Ingredients(ingredient: recipe.strIngredient14, measure: recipe.strMeasure14)
+        Ingredients(ingredient: recipe.strIngredient15, measure: recipe.strMeasure15)
+        Ingredients(ingredient: recipe.strIngredient16, measure: recipe.strMeasure16)
+        Ingredients(ingredient: recipe.strIngredient17, measure: recipe.strMeasure17)
+        Ingredients(ingredient: recipe.strIngredient18, measure: recipe.strMeasure18)
+        Ingredients(ingredient: recipe.strIngredient19, measure: recipe.strMeasure19)
+        Ingredients(ingredient: recipe.strIngredient20, measure: recipe.strMeasure20)
+
         
-        Text(recipe.idMeal)
+        Text(recipe.strInstructions)
     }
 }
 
 #Preview {
-    RecipeView(recipe: Recipe(idMeal: "a", strMeal: "sss", strCategory: "sss", strArea: "ssss", strInstructions: "sss", strMealThumb: URL(string: "ss")!))
+    RecipeView(recipe: Recipe(idMeal: "a", strMeal: "nome da receita", strCategory: "categoria", strArea: "país", strInstructions: "a", strMealThumb: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")!, strIngredient1: "a", strIngredient2: "a", strIngredient3: "a", strIngredient4: "a", strIngredient5: "a", strIngredient6: "a", strIngredient7: "a", strIngredient8: "", strIngredient9: "", strIngredient10: "", strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: "", strIngredient16: "", strIngredient17: "", strIngredient18: "", strIngredient19: "", strIngredient20: "", strMeasure1: "", strMeasure2: "a", strMeasure3: "a", strMeasure4: "a", strMeasure5: "a", strMeasure6: "a", strMeasure7: "a", strMeasure8: "", strMeasure9: "", strMeasure10: "", strMeasure11: "", strMeasure12: "", strMeasure13: "", strMeasure14: "", strMeasure15: "", strMeasure16: "", strMeasure17: "", strMeasure18: "", strMeasure19: "", strMeasure20: ""))
 }
