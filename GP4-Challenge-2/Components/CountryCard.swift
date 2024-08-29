@@ -8,29 +8,30 @@
 import SwiftUI
 
 struct CountryCard: View {
-    let country : String
-//     let flag : String
+    let country: String
+    let flag : String
     var body: some View {
-        VStack(alignment: .center) {
-            Spacer()
-            Image(systemName: "flag.fill")
-                .resizable()
-                .scaledToFit()
-                .border(Color.black)
-                .frame(width: 60)
-            
-            Text(country)
-                .padding(.top, 10.0)
-            Spacer()
-        }
-        .frame(width: 150, height: 150)
-            .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color(white: 0.803)/*@END_MENU_TOKEN@*/)
+        ZStack(alignment: .center) {
+            VStack{
+                Image(flag)
+                    .resizable()
+                    .scaledToFit()
+                    .frame(width: 100,height: 100)
+                
+                Text(country)
+            }
+        }.frame(width: 150, height: 150)
+            .background(.thinMaterial)
+            .clipShape(RoundedRectangle(cornerRadius: 25.0))
             .shadow(radius: 2)
+            
+
+            
         
     }
 }
 
 #Preview {
-    CountryCard(country: "Canada")
+    CountryCard(country: "Canada", flag: "Canadian")
 }
 

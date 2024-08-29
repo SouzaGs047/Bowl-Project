@@ -11,13 +11,15 @@ import SwiftUI
 
 struct CountriesView: View {
     @StateObject var countryModel = CountryModel()
+    let flag: Image
     
     var body: some View {
         NavigationView {
             ScrollView {
                 ForEach(countryModel.countriesArray, id: \.self) { country in
-                    CountryCard(country: country.strArea)
-                        
+                    if (country.strArea != "Unknown") {
+                        CountryCard(country: country.strArea, flag: country.strArea)
+                    }
                 }
             }
             .navigationTitle("Countries")
@@ -29,5 +31,5 @@ struct CountriesView: View {
 }
 
 #Preview {
-    CountriesView()
+    CountriesView(flag: Image("Canadian"))
 }
