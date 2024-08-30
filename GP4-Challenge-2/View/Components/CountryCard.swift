@@ -9,29 +9,61 @@ import SwiftUI
 
 struct CountryCard: View {
     let country: String
-    let flag : String
     
     var body: some View {
-        ZStack(alignment: .center) {
-            VStack{
-                Image(flag)
-                    .resizable()
-                    .scaledToFit()
-                    .frame(width: 100,height: 100)
+        ZStack {
+            Color.purple
+                .ignoresSafeArea()
+            VStack {
+                ZStack {
+                    Image("\(country).meal")
+                        .resizable()
+                        .scaledToFit()
+                        .frame(height: 169)
+                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                    
+                        .foregroundStyle(
+                            .blue.gradient.shadow(.inner(color: .white.opacity(0.3), radius: 40, x: 1, y: 1))
+                        )
+                    VStack {
+                        Spacer()
+                        HStack{
+                            Spacer()
+                            VStack {
+                                Image(country)
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .frame(width: 37.5, height: 25)
+                                    .clipShape(RoundedRectangle(cornerRadius: 3.0))
+                                
+                                
+                                
+                            }     .padding([.bottom, .trailing], 10.4)
+                        }
+                    }
+                }
                 
-                Text(country)
-                    .fontWeight(.semibold)
-                    .foregroundColor(Color("supportColor"))
-            }
-        }.frame(width: 150, height: 150)
-            .background(.thinMaterial)
-            .clipShape(RoundedRectangle(cornerRadius: 25.0))
-            .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 5)
-            .shadow(radius: 0.5)
+                HStack {
+                    Text(country)
+                        .fontWeight(.semibold)
+                        .foregroundColor(Color("supportColor"))
+                        .padding(.leading)
+                    Spacer()
+                }
+
+                
+                Spacer()
+                Spacer()
+            }.frame(width: 168, height: 211)
+                .background(/*@START_MENU_TOKEN@*//*@PLACEHOLDER=View@*/Color("tertiaryColor")/*@END_MENU_TOKEN@*/)
+                .clipShape(RoundedRectangle(cornerRadius: 15.0))
+            
+            
+        }
     }
 }
 
 #Preview {
-    CountryCard(country: "Canada", flag: "Canadian")
+    CountryCard(country: "British")
 }
 

@@ -12,6 +12,7 @@ struct GenerateRandomRecipeView: View {
         NavigationView(content: {
             VStack{
                 Spacer()
+                Spacer()
                 Image("bowl")
                     .resizable()
                     .scaledToFit()
@@ -21,8 +22,8 @@ struct GenerateRandomRecipeView: View {
                     
                 NavigationLink(destination: RandomRecipeView()) {
                     
-                    Text("Randomize Recipe")
-                        .font(.title)
+                    Text("Randomize")
+                        .font(.title2)
                         .fontWeight(.semibold)
                         .padding(8)
                         .padding(.horizontal, 20)
