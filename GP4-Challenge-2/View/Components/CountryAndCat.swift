@@ -15,17 +15,11 @@ struct CountryAndCat: View {
         HStack(spacing: 30){
             Spacer()
             Text(category)
-                .padding(.horizontal)
-                .background(RoundedRectangle(cornerRadius: 50).fill(.cyan))
+                .padding(.horizontal, 7)
+                .background(RoundedRectangle(cornerRadius: 50).fill(Color("secondaryColor")))
+                
     
-            HStack{
-                Image(country)
-                    .resizable()
-                    .scaledToFill()
-                    .frame(width: 25, height: 25)
-                    .padding()
-                Text(country)
-            }
+            CountryAndFlag(country: country)
                 Spacer()
             
         }

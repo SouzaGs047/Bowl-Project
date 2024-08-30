@@ -7,8 +7,8 @@
 
 import SwiftUI
 
-struct Card: View {
-    let recipe: Recipe
+struct CategoryCard: View {
+    let recipe: CountryRecipe
     
     var body: some View {
         ZStack(alignment: .leading) {
@@ -23,37 +23,18 @@ struct Card: View {
                 }.frame(width: 150,height: 150)
                     .clipShape(RoundedRectangle(cornerRadius: 15.0))
                 VStack(alignment: .leading) {
-                    Spacer()
                     Text(recipe.strMeal)
                         .font(.subheadline)
                         .foregroundStyle(.black)
                         .font(.headline)
                         .bold()
-                    Spacer()
-                    HStack {
-                        Image(recipe.strArea)
-                            .resizable()
-                            .frame(width: 34,height: 22)
-                        Text(recipe.strArea)
-                            .font(.caption2)
-                            .shadow(radius: 0.5)
-                        Spacer()
-                        Text(recipe.strCategory)
-                            .font(.caption2)
-                            .padding(.horizontal,5)
-                            .background(RoundedRectangle(cornerRadius: 25.0).fill(Color("secondaryColor")))
-                            .foregroundColor(.white)
-                            .fontWeight(.semibold)
-                            
-                            
-                    }.padding(.vertical)
                         .padding(.trailing)
                 }
             }
         }
-        .padding()
-        .frame(height: 150)
-        
-        
+            .padding()
+            .frame(height: 150)
     }
+        
+    
 }
