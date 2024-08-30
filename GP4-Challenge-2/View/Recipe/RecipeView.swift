@@ -1,10 +1,3 @@
-//
-//  RecipeView.swift
-//  GP4-Challenge-2
-//
-//  Created by JOSE ELIAS GOMES CAMARGO on 27/08/24.
-//
-
 import SwiftUI
 import SwiftData
 
@@ -13,45 +6,55 @@ struct RecipeView: View {
     @Query private var items: [RecipeStorage]
     @State var isSaved = false
     
-    var recipe : Recipe
-    var body: some View {
-       
-        VStack{
-        
-        
-        
-        AsyncImage(url: recipe.strMealThumb){result in result.image?
-                .resizable()
-                .scaledToFill()
-        }.frame(width: 200, height: 200)
-        
-        Text(recipe.strMeal)
-        CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
-        
-        Text(recipe.strInstructions)
-            .padding()
-    }
-    .navigationTitle("Recipe Details")
-    .toolbar{
-        Button(action: {
-            addItem(recipeToAdd: recipe)
-            isSaved.toggle()
-        }, label: {
-            
-            Image(isSaved ? "favorite.fill":"favorite")
-        })
-    }
-}
+    var recipe: Recipe
     
+    var body: some View {
+        VStack {
+            AsyncImage(url: recipe.strMealThumb) { result in
+                result.image?
+                    .resizable()
+                    .scaledToFill()
+            }
+            .frame(width: 200, height: 200)
+            
+            Text(recipe.strMeal)
+            CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
+            
+            Text(recipe.strInstructions)
+                .padding()
+        }
+        .navigationTitle("Recipe Details")
+        .toolbar {
+            Button(action: {
+                if isSaved {
+                    // Remove a receita do armazenamento se já estiver salva
+                    removeItem(recipeId: recipe.idMeal)
+                    isSaved = false
+                } else {
+                    // Adiciona a receita ao armazenamento
+                    addItem(recipeToAdd: recipe)
+                    isSaved = true
+                }
+            }, label: {
+                Image(isSaved ? "favorite.fill" : "favorite")
+            })
+        }
+
+        .onAppear {
+            // Check if the recipe is already saved when the view appears
+            isSaved = isRecipeSaved()
+        }
+    }
+
+    // MARK: ADD ITEM
     private func addItem(recipeToAdd: Recipe) {
         withAnimation {
             let newItem = RecipeStorage(idMeal: recipeToAdd.idMeal,
                                         strMeal: recipeToAdd.strMeal,
                                         strCategory: recipeToAdd.strCategory,
-                                        strArea: recipeToAdd.strArea, 
+                                        strArea: recipeToAdd.strArea,
                                         strInstructions: recipeToAdd.strInstructions,
                                         strMealThumb: recipeToAdd.strMealThumb,
-                                        
                                         strIngredient1: recipeToAdd.strIngredient1,
                                         strIngredient2: recipeToAdd.strIngredient2,
                                         strIngredient3: recipeToAdd.strIngredient3,
@@ -72,8 +75,6 @@ struct RecipeView: View {
                                         strIngredient18: recipeToAdd.strIngredient18,
                                         strIngredient19: recipeToAdd.strIngredient19,
                                         strIngredient20: recipeToAdd.strIngredient20,
-
-                                        
                                         strMeasure1: recipeToAdd.strMeasure1,
                                         strMeasure2: recipeToAdd.strMeasure2,
                                         strMeasure3: recipeToAdd.strMeasure3,
@@ -95,12 +96,25 @@ struct RecipeView: View {
                                         strMeasure19: recipeToAdd.strMeasure19,
                                         strMeasure20: recipeToAdd.strMeasure20)
             
-           
             modelContext.insert(newItem)
         }
     }
-}
-
-#Preview {
-    RecipeView(recipe: Recipe(idMeal: "52771", strMeal: "Spicy Arrabiata Penne", strCategory: "Vegetarian", strArea: "Italian", strInstructions: "Bring a large pot of water to a boil. Add kosher salt to the boiling water, then add the pasta. Cook according to the package instructions, about 9 minutes.\r\nIn a large skillet over medium-high heat, add the olive oil and heat until the oil starts to shimmer. Add the garlic and cook, stirring, until fragrant, 1 to 2 minutes. Add the chopped tomatoes, red chile flakes, Italian seasoning and salt and pepper to taste. Bring to a boil and cook for 5 minutes. Remove from the heat and add the chopped basil.\r\nDrain the pasta and add it to the sauce. Garnish with Parmigiano-Reggiano flakes and more basil and serve warm.", strMealThumb: URL(string: "https://www.themealdb.com/images/media/meals/ustsqw1468250014.jpg")!, strIngredient1: "a", strIngredient2: "a", strIngredient3: "a", strIngredient4: "a", strIngredient5: "a", strIngredient6: "a", strIngredient7: "a", strIngredient8: "", strIngredient9: "", strIngredient10: "", strIngredient11: "", strIngredient12: "", strIngredient13: "", strIngredient14: "", strIngredient15: "", strIngredient16: "", strIngredient17: "", strIngredient18: "", strIngredient19: "", strIngredient20: "", strMeasure1: "", strMeasure2: "a", strMeasure3: "a", strMeasure4: "a", strMeasure5: "a", strMeasure6: "a", strMeasure7: "a", strMeasure8: "", strMeasure9: "", strMeasure10: "", strMeasure11: "", strMeasure12: "", strMeasure13: "", strMeasure14: "", strMeasure15: "", strMeasure16: "", strMeasure17: "", strMeasure18: "", strMeasure19: "", strMeasure20: ""))
+    
+    // MARK: REMOVE ITEM
+    private func removeItem(recipeId: String) {
+        withAnimation {
+            // Encontre o item a ser removido com base no idMeal
+            if let index = items.firstIndex(where: { $0.idMeal == recipeId }) {
+                // Exclua o item do contexto do modelo
+                let itemToDelete = items[index]
+                modelContext.delete(itemToDelete)
+            }
+        }
+    }
+    
+    // MARK: CHECK IF RECIPE IS SAVED
+    private func isRecipeSaved() -> Bool {
+        // Check if a RecipeStorage with the same idMeal already exists
+        items.contains { $0.idMeal == recipe.idMeal }
+    }
 }

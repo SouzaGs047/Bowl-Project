@@ -13,7 +13,7 @@ struct FavoritesView: View {
     @Query private var items: [RecipeStorage]
 
     var body: some View {
-        NavigationSplitView {
+        NavigationView {
             List {
                 ForEach(items) { recipe in
                     NavigationLink(destination: RecipeView(recipe: Recipe(
@@ -66,8 +66,34 @@ struct FavoritesView: View {
                         strMeasure19: recipe.strMeasure19,
                         strMeasure20: recipe.strMeasure20
                     ))){
-                        Text(recipe.strMeal)
-                            .padding(.bottom, 12)
+                        //MARK: CONTEUDO DO FOREACH
+                        
+                            
+                        VStack(alignment: .leading) {
+                            HStack {
+                                AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                        .resizable()
+                                        .scaledToFill()
+                                }.frame(width: 150,height: 150)
+                                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                VStack(alignment: .leading) {
+                                    Text(recipe.strMeal)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.black)
+                                    Text(recipe.strCategory)
+                                        .font(.caption)
+                                    HStack {
+                                        Image(recipe.strArea)
+                                            .resizable()
+                                            .frame(width: 45,height: 30)
+                                        Text(recipe.strArea)
+                                            .font(.caption)
+                                    }
+                                }
+                            }
+                        }
+                        
+                        
                     }.buttonStyle(PlainButtonStyle())
                 }
                 .onDelete(perform: deleteItems)
@@ -78,8 +104,6 @@ struct FavoritesView: View {
                     EditButton()
                 }
             }
-        } detail: {
-            Text("Select an item")
         }
     }
 
