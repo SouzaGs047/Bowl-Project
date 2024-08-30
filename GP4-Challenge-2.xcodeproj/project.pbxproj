@@ -21,6 +21,7 @@
 		9F0F77D12C7E4B8A00075740 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D02C7E4B8A00075740 /* CountryModel.swift */; };
 		9F0F77D32C7E4B9300075740 /* CountryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D22C7E4B9300075740 /* CountryResponse.swift */; };
 		9F0F77D72C7E4CFB00075740 /* RandomRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D62C7E4CFB00075740 /* RandomRecipeView.swift */; };
+		9F27104A2C8244C200575F31 /* RecipeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2710492C8244C200575F31 /* RecipeStorage.swift */; };
 		9F3D5C132C7FA30000801AFC /* CountryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3D5C122C7FA30000801AFC /* CountryFeedView.swift */; };
 		9F3D5C172C7FA5EC00801AFC /* CountryRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3D5C162C7FA5EC00801AFC /* CountryRecipe.swift */; };
 		9F3D5C192C7FA61400801AFC /* CountryRecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3D5C182C7FA61400801AFC /* CountryRecipeResponse.swift */; };
@@ -54,6 +55,7 @@
 		9F0F77D02C7E4B8A00075740 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		9F0F77D22C7E4B9300075740 /* CountryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryResponse.swift; sourceTree = "<group>"; };
 		9F0F77D62C7E4CFB00075740 /* RandomRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeView.swift; sourceTree = "<group>"; };
+		9F2710492C8244C200575F31 /* RecipeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorage.swift; sourceTree = "<group>"; };
 		9F3D5C122C7FA30000801AFC /* CountryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFeedView.swift; sourceTree = "<group>"; };
 		9F3D5C162C7FA5EC00801AFC /* CountryRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRecipe.swift; sourceTree = "<group>"; };
 		9F3D5C182C7FA61400801AFC /* CountryRecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRecipeResponse.swift; sourceTree = "<group>"; };
@@ -167,6 +169,7 @@
 				9F0F77C22C7E461100075740 /* RecipeModel.swift */,
 				9F0F77BF2C7E45C800075740 /* Recipe.swift */,
 				9F0F77C42C7E49C900075740 /* RecipeResponse.swift */,
+				9F2710492C8244C200575F31 /* RecipeStorage.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -323,6 +326,7 @@
 				9F3D5C212C7FC0C500801AFC /* CategoryCardView.swift in Sources */,
 				AE4519822C77D72C00752D40 /* GP4_Challenge_2App.swift in Sources */,
 				9F3D5C192C7FA61400801AFC /* CountryRecipeResponse.swift in Sources */,
+				9F27104A2C8244C200575F31 /* RecipeStorage.swift in Sources */,
 				9F0F77C92C7E49EB00075740 /* CategoryModel.swift in Sources */,
 				9F8EEEBF2C7E761300D02E55 /* FavoritesView.swift in Sources */,
 				9F3D5C1D2C7FAA7E00801AFC /* RecipeByIDView.swift in Sources */,
