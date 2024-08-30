@@ -11,15 +11,13 @@ import SwiftData
 struct RecipeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [RecipeStorage]
-
+    @State var isSaved = false
+    
     var recipe : Recipe
     var body: some View {
-     
-        Button(action: {
-            addItem(recipeToAdd: recipe)
-        }, label: {
-            Label("Add Item", systemImage: "plus")
-        })
+       
+        VStack{
+        
         
         
         AsyncImage(url: recipe.strMealThumb){result in result.image?
@@ -29,10 +27,21 @@ struct RecipeView: View {
         
         Text(recipe.strMeal)
         CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
-
+        
         Text(recipe.strInstructions)
             .padding()
     }
+    .navigationTitle("Recipe Details")
+    .toolbar{
+        Button(action: {
+            addItem(recipeToAdd: recipe)
+            isSaved.toggle()
+        }, label: {
+            
+            Image(isSaved ? "favorite.fill":"favorite")
+        })
+    }
+}
     
     private func addItem(recipeToAdd: Recipe) {
         withAnimation {
