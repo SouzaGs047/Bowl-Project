@@ -8,39 +8,41 @@ struct RecipeByIDView: View {
     var body: some View {
         NavigationView {
             ScrollView {
-                ForEach(recipeModel.recipesArray, id: \.idMeal) { recipe in
-                    AsyncImage(url: recipe.strMealThumb){result in result.image?
-                            .resizable()
-                            .scaledToFill()
-                    }.frame(width: 200, height: 200)
-                    
-                    Text(recipe.strMeal)
-                    CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
-                    Ingredients(ingredient: recipe.strIngredient1, measure: recipe.strMeasure1)
-                    Ingredients(ingredient: recipe.strIngredient2, measure: recipe.strMeasure2)
-                    Ingredients(ingredient: recipe.strIngredient3, measure: recipe.strMeasure3)
-                    Ingredients(ingredient: recipe.strIngredient4, measure: recipe.strMeasure4)
-                    Ingredients(ingredient: recipe.strIngredient5, measure: recipe.strMeasure5)
-                    Ingredients(ingredient: recipe.strIngredient6, measure: recipe.strMeasure6)
-                    Ingredients(ingredient: recipe.strIngredient7, measure: recipe.strMeasure7)
-                    Ingredients(ingredient: recipe.strIngredient8, measure: recipe.strMeasure8)
-                    Ingredients(ingredient: recipe.strIngredient9, measure: recipe.strMeasure9)
-                    Ingredients(ingredient: recipe.strIngredient10, measure: recipe.strMeasure10)
-                    Ingredients(ingredient: recipe.strIngredient11, measure: recipe.strMeasure11)
-                    Ingredients(ingredient: recipe.strIngredient12, measure: recipe.strMeasure12)
-                    Ingredients(ingredient: recipe.strIngredient13, measure: recipe.strMeasure13)
-                    Ingredients(ingredient: recipe.strIngredient14, measure: recipe.strMeasure14)
-                    Ingredients(ingredient: recipe.strIngredient15, measure: recipe.strMeasure15)
-                    Ingredients(ingredient: recipe.strIngredient16, measure: recipe.strMeasure16)
-                    Ingredients(ingredient: recipe.strIngredient17, measure: recipe.strMeasure17)
-                    Ingredients(ingredient: recipe.strIngredient18, measure: recipe.strMeasure18)
-                    Ingredients(ingredient: recipe.strIngredient19, measure: recipe.strMeasure19)
-                    Ingredients(ingredient: recipe.strIngredient20, measure: recipe.strMeasure20)
-
-                    
-                    Text(recipe.strInstructions)
+                VStack(alignment: .leading){
+                    ForEach(recipeModel.recipesArray, id: \.idMeal) { recipe in
+                        AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                .resizable()
+                                .scaledToFill()
+                        }.frame(width: 200, height: 200)
                         
-                    
+                        Text(recipe.strMeal)
+                        
+                        CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
+                        
+                        Ingredients(measure: recipe.strMeasure1, ingredient: recipe.strIngredient1)
+                        Ingredients(measure: recipe.strMeasure2, ingredient: recipe.strIngredient2)
+                        Ingredients(measure: recipe.strMeasure3, ingredient: recipe.strIngredient3)
+                        Ingredients(measure: recipe.strMeasure4, ingredient: recipe.strIngredient4)
+                        Ingredients(measure: recipe.strMeasure5, ingredient: recipe.strIngredient5)
+                        Ingredients(measure: recipe.strMeasure6, ingredient: recipe.strIngredient6)
+                        Ingredients(measure: recipe.strMeasure7, ingredient: recipe.strIngredient7)
+                        Ingredients(measure: recipe.strMeasure8, ingredient: recipe.strIngredient8)
+                        Ingredients(measure: recipe.strMeasure9, ingredient: recipe.strIngredient9)
+                        Ingredients(measure: recipe.strMeasure10, ingredient: recipe.strIngredient10)
+                        Ingredients(measure: recipe.strMeasure11, ingredient: recipe.strIngredient11)
+                        Ingredients(measure: recipe.strMeasure12, ingredient: recipe.strIngredient12)
+                        Ingredients(measure: recipe.strMeasure13, ingredient: recipe.strIngredient13)
+                        Ingredients(measure: recipe.strMeasure14, ingredient: recipe.strIngredient14)
+                        Ingredients(measure: recipe.strMeasure15, ingredient: recipe.strIngredient15)
+                        Ingredients(measure: recipe.strMeasure16, ingredient: recipe.strIngredient16)
+                        Ingredients(measure: recipe.strMeasure17, ingredient: recipe.strIngredient17)
+                        Ingredients(measure: recipe.strMeasure18, ingredient: recipe.strIngredient18)
+                        Ingredients(measure: recipe.strMeasure19, ingredient: recipe.strIngredient19)
+                        Ingredients(measure: recipe.strMeasure20, ingredient: recipe.strIngredient20)
+                        
+                        Text(recipe.strInstructions)
+                        
+                    }
                 }
             .navigationTitle("Recipe")
             .onAppear {

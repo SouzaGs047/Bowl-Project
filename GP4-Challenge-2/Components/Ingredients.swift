@@ -4,25 +4,24 @@
 //
 //  Created by AMANDA CAROLINE DA SILVA RODRIGUES on 28/08/24.
 //
-
+//
 import SwiftUI
 import Foundation
 
-
 struct Ingredients: View {
     
-    var ingredient: String
-    var measure: String
+    var measure: String?
+    var ingredient: String?
     
     var body: some View {
-            if (ingredient != "" && measure != "") {
-                Text("\(ingredient) - \(measure)")
+            if (ingredient ?? "" != "" ) {
+                Text("\(measure ?? "") of \(ingredient ?? "")")
         }
     }
 }
 
 #Preview {
-    Ingredients(ingredient: "", measure: "julieta")
+    Ingredients(measure: "julieta", ingredient: "")
 }
 
 

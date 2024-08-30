@@ -19,6 +19,8 @@ struct CountryCard: View {
                     .frame(width: 100,height: 100)
                 
                 Text(country)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("supportColor"))
             }
         }.frame(width: 150, height: 150)
             .background(.thinMaterial)

@@ -20,12 +20,12 @@ struct FeedView: View {
                 .navigationTitle("Recipes")
                 .searchable(text: $searchTerm, prompt: "Search recipes")
                 .onAppear(){
-                    let randomLetter: String = randomAlphanumericString(1)
+                    let randomLetter: String = randomChar()
                     recipeModel.fetchBySearch(nameRecipe: randomLetter)
                 }
                 .onChange(of: searchTerm) { _ in
                     if(searchTerm == ""){
-                        let randomLetter: String = randomAlphanumericString(1)
+                        let randomLetter: String = randomChar()
                         recipeModel.fetchBySearch(nameRecipe: randomLetter)
                     } else {
                         recipeModel.fetchBySearch(nameRecipe: searchTerm)

@@ -172,6 +172,7 @@
 		AE4519802C77D72C00752D40 /* GP4-Challenge-2 */ = {
 			isa = PBXGroup;
 			children = (
+				AEB3A8302C8125B400639534 /* View */,
 				7BB5CCAE2C7E671A00F9C0F8 /* Components */,
 				9F0F77C12C7E460100075740 /* Model */,
 				AEC9D4772C794C6A001B05C8 /* FeedView.swift */,
@@ -200,6 +201,13 @@
 				AE45198A2C77D72D00752D40 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		AEB3A8302C8125B400639534 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

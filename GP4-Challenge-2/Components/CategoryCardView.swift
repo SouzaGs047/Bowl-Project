@@ -21,7 +21,9 @@ struct CategoryCardView: View {
                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
                 VStack(alignment: .leading) {
                     Text(category.strCategory)
-                        .foregroundStyle(.black)
+                        .font(.headline)
+                        .fontWeight(.semibold)
+                        .foregroundStyle(Color("supportColor"))
                     
                     
                 }
@@ -32,3 +34,6 @@ struct CategoryCardView: View {
     }
 }
 
+#Preview {
+    CategoryCardView(category: Category(idCategory: "pp", strCategory: "Desserts", strCategoryThumb: URL(string: "aaa")!, strCategoryDescription: "sss"))
+}

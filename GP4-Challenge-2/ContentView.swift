@@ -15,29 +15,27 @@ struct ContentView: View {
             TabView (selection: $selectedTab, content: {
                 FeedView()
                     .tabItem() {
-                        VStack{
-                            Image(selectedTab==1 ? "HomeFilled" : "Home")
-                                .resizable()
-                                .frame(width: 1, height: 1)
-                                .scaledToFit()
-                            Text("Feed")
-                        }
+                        Image(selectedTab==1 ? "home.fill" : "home")
+                        Text("Feed")
                     }.tag(1)
                 
                 SliderCategoriesView()
                     .tabItem() {
-                        Image(selectedTab==1 ? "Category" : "CategoryFilled")
-                            .resizable()
-                            .frame(width: 2, height: 2)
+                        Image(selectedTab == 2 ? "category.fill" : "category")
+                        Text("Categories")
                     }.tag(2)
                 
                 GenerateRandomRecipeView()
                     .tabItem() {
-                        Label("Random", image: "Random") }
+                        Image(selectedTab == 3 ? "random.fill" : "random")
+                        Text("Random")
+                    }.tag(3)
                 
                 FavoritesView()
                     .tabItem() {
-                        Label("Favorites", image: "Bookmark") }
+                        Image(selectedTab == 4 ? "bookmark.fill" : "bookmark")
+                        Text("Favorites")
+                    }.tag(4)
             }).tint(.base)
         }
     }

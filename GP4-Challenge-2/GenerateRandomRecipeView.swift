@@ -11,21 +11,29 @@ struct GenerateRandomRecipeView: View {
     var body: some View {
         NavigationView(content: {
             VStack{
-                Image("chef")
+                Spacer()
+                Image("bowl")
                     .resizable()
-                    .aspectRatio(contentMode: .fit)
+                    .scaledToFit()
+                    .frame(width: 190)
+                    .padding(.bottom, 30)
+                    
+                    
                 NavigationLink(destination: RandomRecipeView()) {
                     
-                    Text("Generate Recipe")
-                        .font(.largeTitle)
-                        .padding()
+                    Text("Randomize Recipe")
+                        .font(.title)
+                        .fontWeight(.semibold)
+                        .padding(8)
+                        .padding(.horizontal, 20)
                         .foregroundStyle(.white)
-                        .background(Color(.orange))
+                        .background(Color("secondaryColor"))
                         .clipShape(RoundedRectangle(cornerRadius: 50))
                 }
                 
                 Spacer()
-            }.navigationTitle("Recipes")
+                Spacer()
+            }.navigationTitle("Random Recipe")
         })
     }
 }

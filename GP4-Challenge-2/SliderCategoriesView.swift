@@ -24,20 +24,50 @@ struct SliderCategoriesView: View {
                     selectedTab = 1
                 }, label: {
                     Text("Categories")
-                        .foregroundColor(selectedTab == 1 ? .blue : .black)
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .foregroundColor(selectedTab == 1 ? Color("baseColor") : Color("grayColor"))
+                        .overlay (
+                                
+                                RoundedRectangle(cornerRadius: 2)
+                                    .frame(width: selectedTab == 1 ? 115 : 0, height: selectedTab == 1 ? 3 : 0)
+                                    .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color("secondaryColor")/*@END_MENU_TOKEN@*/)
+                            
+                        )
                 })
                 
                 Text (" | ")
+                    .font(.title2)
+                    .fontWeight(.semibold)
+                    .foregroundColor(Color("grayColor"))
                 
-                Button(action: {
-                    selectedTab = 2
-                }, label: {
-                    Text("Countries")
-                        .foregroundColor(selectedTab == 2 ? .blue : .black)
-                })
+                VStack {
+                    Button(action: {
+                        selectedTab = 2
+                    }, label: {
+                        Text("Countries")
+                            .font(.title2)
+                            .fontWeight(.semibold)
+                            .foregroundColor(selectedTab == 2 ? Color("baseColor") : Color("grayColor"))
+                            .overlay (
+                                    
+                                    RoundedRectangle(cornerRadius: 2)
+                                        .frame(width: selectedTab == 2 ? 100 : 0, height: selectedTab == 2 ? 3 : 0)
+                                        .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                                        .foregroundColor(/*@START_MENU_TOKEN@*/Color("secondaryColor")/*@END_MENU_TOKEN@*/)
+                                
+                            )
+                        
+                    })
+                    
                 
-                
+                    
+                }
             }
+            .padding(.top, 5)
+            .frame(height: 44)
+
             
             TabView(selection: $selectedTab,
                     content:  {

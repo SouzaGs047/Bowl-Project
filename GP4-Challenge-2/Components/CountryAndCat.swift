@@ -12,11 +12,12 @@ struct CountryAndCat: View {
     let category: String
     
     var body: some View {
-        HStack{
+        HStack(spacing: 30){
+            Spacer()
             Text(category)
                 .padding(.horizontal)
                 .background(RoundedRectangle(cornerRadius: 50).fill(.cyan))
-            Spacer()
+    
             HStack{
                 Image(country)
                     .resizable()
@@ -25,7 +26,9 @@ struct CountryAndCat: View {
                     .padding()
                 Text(country)
             }
-        }.frame(maxWidth: 250)
+                Spacer()
+            
+        }
     }
 }
 
