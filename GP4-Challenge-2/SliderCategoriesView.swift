@@ -28,12 +28,11 @@ struct SliderCategoriesView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(selectedTab == 1 ? Color("baseColor") : Color("grayColor"))
                         .overlay (
-                                
-                                RoundedRectangle(cornerRadius: 2)
-                                    .frame(width: selectedTab == 1 ? 115 : 0, height: selectedTab == 1 ? 3 : 0)
-                                    .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
-                                    .foregroundColor(/*@START_MENU_TOKEN@*/Color("secondaryColor")/*@END_MENU_TOKEN@*/)
                             
+                            RoundedRectangle(cornerRadius: 2)
+                                .frame(width: selectedTab == 1 ? 115 : 0, height: selectedTab == 1 ? 3 : 0)
+                                .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
+                                .foregroundColor(/*@START_MENU_TOKEN@*/Color("secondaryColor")/*@END_MENU_TOKEN@*/)
                         )
                 })
                 
@@ -51,23 +50,16 @@ struct SliderCategoriesView: View {
                             .fontWeight(.semibold)
                             .foregroundColor(selectedTab == 2 ? Color("baseColor") : Color("grayColor"))
                             .overlay (
-                                    
-                                    RoundedRectangle(cornerRadius: 2)
-                                        .frame(width: selectedTab == 2 ? 100 : 0, height: selectedTab == 2 ? 3 : 0)
-                                        .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)
-                                        .foregroundColor(/*@START_MENU_TOKEN@*/Color("secondaryColor")/*@END_MENU_TOKEN@*/)
-                                
+                                RoundedRectangle(cornerRadius: 2)
+                                    .frame(width: selectedTab == 2 ? 100 : 0, height: selectedTab == 2 ? 3 : 0)
+                                    .offset(x: 0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/15.0)
+                                    .foregroundColor(Color("secondaryColor"))
                             )
-                        
                     })
-                    
-                
-                    
                 }
             }
-            .padding(.top, 5)
-            .frame(height: 44)
-
+            .padding(.bottom, 15)
+            .frame(height: 60)
             
             TabView(selection: $selectedTab,
                     content:  {
@@ -77,7 +69,8 @@ struct SliderCategoriesView: View {
                     ForEach(categoryModel.categoriesArray, id: \.idCategory) { category in
                         NavigationLink(destination: CategoryFeedView(category: category)) {
                             CategoryCardView(category: category)
-                                .padding(.vertical)
+                                .padding(.bottom,10)
+                                .padding(.top, 1)
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
@@ -89,34 +82,29 @@ struct SliderCategoriesView: View {
                 
                 //MARK: COUNTRIES
                 
-                
-                
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 25) {
+                    LazyVGrid(columns: columns) {
                         ForEach(countryModel.countriesArray, id: \.self) { country in
                             NavigationLink(destination: CountryFeedView(country: country)) {
-                                    CountryCard(country: country.strArea, flag: country.strArea)
-                                    .padding(.vertical)
+                                CountryCard(country: country.strArea, flag: country.strArea)
                             }.buttonStyle(PlainButtonStyle())
+                                .padding(.top, 1)
+                                .padding(.bottom, 20)
                         }
-                        
                     }
-                    .padding(.horizontal, 25.0)
-                    .padding(.top, 10)
+                    
+                    .padding(.horizontal, 20)
+                    
                 }.tabItem {
                 }
                 .tag(2)
-            })        .tabViewStyle(.page(indexDisplayMode: .never))
-            
-            
-            
-            
-        } .onAppear {
+            })
+            .tabViewStyle(.page(indexDisplayMode: .never))
+        }
+        .onAppear {
             categoryModel.fetch()
             countryModel.fetch()
         }
-        
-        
     }
 }
 

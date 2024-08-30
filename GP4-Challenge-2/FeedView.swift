@@ -6,25 +6,30 @@ struct FeedView: View {
     
     var body: some View {
         NavigationView {
-            ScrollView {
+            ScrollView{
+                HStack{
+                    Text("Recommendations")
+                        .font(.title2)
+                        .fontWeight(.semibold)
+                        .padding(.horizontal,17)
+                    Spacer()
+                }
                 ForEach(recipeModel.recipesArray, id: \.idMeal) { meal in
-                    
                     NavigationLink(destination: RecipeView(recipe: meal)){
                         Card(recipe: meal)
-                            .padding(.vertical    )
-                        
+                            .padding(.bottom, 12)
                     }.buttonStyle(PlainButtonStyle())
-                    
-                    
                 }
                 .navigationTitle("Recipes")
                 .searchable(text: $searchTerm, prompt: "Search recipes")
                 .onAppear(){
-                    let randomLetter: String = randomChar()
-                    recipeModel.fetchBySearch(nameRecipe: randomLetter)
+                    if(searchTerm.isEmpty){
+                        let randomLetter: String = randomChar()
+                        recipeModel.fetchBySearch(nameRecipe: randomLetter)
+                    }
                 }
                 .onChange(of: searchTerm) { _ in
-                    if(searchTerm == ""){
+                    if(searchTerm.isEmpty){
                         let randomLetter: String = randomChar()
                         recipeModel.fetchBySearch(nameRecipe: randomLetter)
                     } else {

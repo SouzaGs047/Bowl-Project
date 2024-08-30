@@ -14,7 +14,8 @@ struct Card: View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 15.0)
                 .fill(.thinMaterial)
-                .shadow(color: .black.opacity(0.18), radius: 10, x: 0, y: 2)
+                .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 5)
+                .shadow(radius: 0.5)
             HStack {
                 AsyncImage(url: recipe.strMealThumb){result in result.image?
                         .resizable()
