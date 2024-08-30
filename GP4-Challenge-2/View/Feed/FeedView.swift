@@ -1,7 +1,12 @@
 import SwiftUI
+import SwiftData
 
 struct FeedView: View {
+    @Environment(\.modelContext) private var modelContext
+
     @StateObject var recipeModel = RecipeModel()
+    @Query private var items: [RecipeStorage]
+
     @State private var searchTerm = ""
     
     var body: some View {

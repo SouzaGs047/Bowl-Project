@@ -6,10 +6,22 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct RecipeView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var items: [RecipeStorage]
+
     var recipe : Recipe
     var body: some View {
+     
+        Button(action: {
+            addItem(recipeToAdd: recipe)
+        }, label: {
+            Label("Add Item", systemImage: "plus")
+        })
+        
+        
         AsyncImage(url: recipe.strMealThumb){result in result.image?
                 .resizable()
                 .scaledToFill()
@@ -17,30 +29,66 @@ struct RecipeView: View {
         
         Text(recipe.strMeal)
         CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
-//        Ingredients(ingredient: recipe.strIngredient1, measure: recipe.strMeasure1)
-//        Ingredients(ingredient: recipe.strIngredient2?, measure: recipe.strMeasure2?)
-//        Ingredients(ingredient: recipe.strIngredient3, measure: recipe.strMeasure3)
-//        Ingredients(ingredient: recipe.strIngredient4, measure: recipe.strMeasure4)
-//        Ingredients(ingredient: recipe.strIngredient5, measure: recipe.strMeasure5)
-//        Ingredients(ingredient: recipe.strIngredient6, measure: recipe.strMeasure6)
-//        Ingredients(ingredient: recipe.strIngredient7, measure: recipe.strMeasure7)
-//        Ingredients(ingredient: recipe.strIngredient8, measure: recipe.strMeasure8)
-//        Ingredients(ingredient: recipe.strIngredient9, measure: recipe.strMeasure9)
-//        Ingredients(ingredient: recipe.strIngredient10, measure: recipe.strMeasure10)
-//        Ingredients(ingredient: recipe.strIngredient11, measure: recipe.strMeasure11)
-//        Ingredients(ingredient: recipe.strIngredient12, measure: recipe.strMeasure12)
-//        Ingredients(ingredient: recipe.strIngredient13, measure: recipe.strMeasure13)
-//        Ingredients(ingredient: recipe.strIngredient14, measure: recipe.strMeasure14)
-//        Ingredients(ingredient: recipe.strIngredient15, measure: recipe.strMeasure15)
-//        Ingredients(ingredient: recipe.strIngredient16, measure: recipe.strMeasure16)
-//        Ingredients(ingredient: recipe.strIngredient17, measure: recipe.strMeasure17)
-//        Ingredients(ingredient: recipe.strIngredient18, measure: recipe.strMeasure18)
-//        Ingredients(ingredient: recipe.strIngredient19, measure: recipe.strMeasure19)
-//        Ingredients(ingredient: recipe.strIngredient20, measure: recipe.strMeasure20)
 
-        
         Text(recipe.strInstructions)
             .padding()
+    }
+    
+    private func addItem(recipeToAdd: Recipe) {
+        withAnimation {
+            let newItem = RecipeStorage(idMeal: recipeToAdd.idMeal,
+                                        strMeal: recipeToAdd.strMeal,
+                                        strCategory: recipeToAdd.strCategory,
+                                        strArea: recipeToAdd.strArea, 
+                                        strInstructions: recipeToAdd.strInstructions,
+                                        strMealThumb: recipeToAdd.strMealThumb,
+                                        
+                                        strIngredient1: recipeToAdd.strIngredient1,
+                                        strIngredient2: recipeToAdd.strIngredient2,
+                                        strIngredient3: recipeToAdd.strIngredient3,
+                                        strIngredient4: recipeToAdd.strIngredient4,
+                                        strIngredient5: recipeToAdd.strIngredient5,
+                                        strIngredient6: recipeToAdd.strIngredient6,
+                                        strIngredient7: recipeToAdd.strIngredient7,
+                                        strIngredient8: recipeToAdd.strIngredient8,
+                                        strIngredient9: recipeToAdd.strIngredient9,
+                                        strIngredient10: recipeToAdd.strIngredient10,
+                                        strIngredient11: recipeToAdd.strIngredient11,
+                                        strIngredient12: recipeToAdd.strIngredient12,
+                                        strIngredient13: recipeToAdd.strIngredient13,
+                                        strIngredient14: recipeToAdd.strIngredient14,
+                                        strIngredient15: recipeToAdd.strIngredient15,
+                                        strIngredient16: recipeToAdd.strIngredient16,
+                                        strIngredient17: recipeToAdd.strIngredient17,
+                                        strIngredient18: recipeToAdd.strIngredient18,
+                                        strIngredient19: recipeToAdd.strIngredient19,
+                                        strIngredient20: recipeToAdd.strIngredient20,
+
+                                        
+                                        strMeasure1: recipeToAdd.strMeasure1,
+                                        strMeasure2: recipeToAdd.strMeasure2,
+                                        strMeasure3: recipeToAdd.strMeasure3,
+                                        strMeasure4: recipeToAdd.strMeasure4,
+                                        strMeasure5: recipeToAdd.strMeasure5,
+                                        strMeasure6: recipeToAdd.strMeasure6,
+                                        strMeasure7: recipeToAdd.strMeasure7,
+                                        strMeasure8: recipeToAdd.strMeasure8,
+                                        strMeasure9: recipeToAdd.strMeasure9,
+                                        strMeasure10: recipeToAdd.strMeasure10,
+                                        strMeasure11: recipeToAdd.strMeasure11,
+                                        strMeasure12: recipeToAdd.strMeasure12,
+                                        strMeasure13: recipeToAdd.strMeasure13,
+                                        strMeasure14: recipeToAdd.strMeasure14,
+                                        strMeasure15: recipeToAdd.strMeasure15,
+                                        strMeasure16: recipeToAdd.strMeasure16,
+                                        strMeasure17: recipeToAdd.strMeasure17,
+                                        strMeasure18: recipeToAdd.strMeasure18,
+                                        strMeasure19: recipeToAdd.strMeasure19,
+                                        strMeasure20: recipeToAdd.strMeasure20)
+            
+           
+            modelContext.insert(newItem)
+        }
     }
 }
 

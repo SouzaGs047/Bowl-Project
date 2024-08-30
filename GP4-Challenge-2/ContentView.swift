@@ -6,8 +6,13 @@
 //
 
 import SwiftUI
+import SwiftData
 
 struct ContentView: View {
+    @Environment(\.modelContext) private var modelContext
+    @Query private var items: [RecipeStorage]
+
+
     @State var selectedTab = 1
     
     var body: some View {
