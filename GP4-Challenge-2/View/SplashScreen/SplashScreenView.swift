@@ -9,13 +9,12 @@ import SwiftUI
 
 struct SplashScreenView: View {
     @Environment(\.modelContext) private var modelContext
-
+    
     @State private var isActive = false
     @State private var size = 0.8
     @State private var opacity = 0.5
     
     var body: some View {
-        
         if (isActive) {
             ContentView()
         } else {
@@ -45,9 +44,9 @@ struct SplashScreenView: View {
         }
     }
 }
-        
-        
-        
-        #Preview {
-            SplashScreenView()
-        }
+
+
+
+#Preview {
+    SplashScreenView()
+}

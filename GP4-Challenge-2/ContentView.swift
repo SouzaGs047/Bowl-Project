@@ -29,6 +29,7 @@ struct ContentView: View {
             NavigationStack {
                 SliderCategoriesView()
                     .navigationBarHidden(true)
+
             }
             .tabItem() {
                 Image(selectedTab == 2 ? "category.fill" : "category")
