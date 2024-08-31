@@ -6,7 +6,7 @@ struct CategoryFeedView: View {
     let category : Category
     
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView {
                 ForEach(countryRecipeModel.countryRecipesArray, id: \.idMeal) { recipe in
                     
@@ -25,6 +25,8 @@ struct CategoryFeedView: View {
                                     Text(recipe.strMeal)
                                         .font(.subheadline)
                                         .foregroundStyle(.black)
+                                        .fontWeight(.semibold)
+                                        .padding(.trailing, 10)
                                     
                                 }
                             }
@@ -39,6 +41,9 @@ struct CategoryFeedView: View {
                 }
             }
         }
+        .navigationTitle(category.strCategory)
+        .navigationBarTitleDisplayMode(.large)
+
     }
 }
 

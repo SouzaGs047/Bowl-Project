@@ -11,38 +11,52 @@ import SwiftData
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [RecipeStorage]
-
-
+    
+    
     @State var selectedTab = 1
     
     var body: some View {
-        NavigationStack {
-            TabView (selection: $selectedTab, content: {
+        TabView (selection: $selectedTab, content: {
+            NavigationStack {
                 FeedView()
-                    .tabItem() {
-                        Image(selectedTab==1 ? "home.fill" : "home")
-                        Text("Feed")
-                    }.tag(1)
-                
+            }
+            .tabItem() {
+                Image(selectedTab==1 ? "home.fill" : "home")
+                Text("Feed")
+            }
+            .tag(1)
+            
+            NavigationStack {
                 SliderCategoriesView()
-                    .tabItem() {
-                        Image(selectedTab == 2 ? "category.fill" : "category")
-                        Text("Categories")
-                    }.tag(2)
-                
+                    .navigationBarHidden(true)
+            }
+            .tabItem() {
+                Image(selectedTab == 2 ? "category.fill" : "category")
+                Text("Categories")
+            }
+            .tag(2)
+            
+            
+            NavigationStack {
                 GenerateRandomRecipeView()
-                    .tabItem() {
-                        Image(selectedTab == 3 ? "random.fill" : "random")
-                        Text("Random")
-                    }.tag(3)
-                
+            }
+            .tabItem() {
+                Image(selectedTab == 3 ? "random.fill" : "random")
+                Text("Random")
+            }
+            .tag(3)
+            
+            NavigationStack {
                 FavoritesView()
-                    .tabItem() {
-                        Image(selectedTab == 4 ? "bookmark.fill" : "bookmark")
-                        Text("Favorites")
-                    }.tag(4)
-            }).tint(.base)
-        }
+                
+            }.tabItem() {
+                Image(selectedTab == 4 ? "bookmark.fill" : "bookmark")
+                Text("Favorites")
+            }
+            .tag(4)
+        })
+        .tint(.base)
+        
     }
 }
 

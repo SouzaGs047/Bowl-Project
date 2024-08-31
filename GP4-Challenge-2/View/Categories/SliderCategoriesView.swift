@@ -74,6 +74,7 @@ struct SliderCategoriesView: View {
                         }.buttonStyle(PlainButtonStyle())
                     }
                 }
+                .navigationTitle("Categories")
                 .tabItem {
                 }
                 .tag(1)
@@ -95,7 +96,9 @@ struct SliderCategoriesView: View {
                     
                     .padding(.horizontal, 20)
                     
-                }.tabItem {
+                }
+                .navigationTitle("Countries")
+                .tabItem {
                 }
                 .tag(2)
             })

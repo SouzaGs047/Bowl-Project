@@ -13,7 +13,7 @@ struct FavoritesView: View {
     @Query private var items: [RecipeStorage]
 
     var body: some View {
-        NavigationView {
+        VStack {
             List {
                 ForEach(items) { recipe in
                     NavigationLink(destination: RecipeView(recipe: Recipe(
@@ -104,7 +104,8 @@ struct FavoritesView: View {
                     EditButton()
                 }
             }
-        }
+        }            .navigationTitle("Favorites")
+
     }
 
     private func addItem() {

@@ -6,7 +6,7 @@ struct CountryFeedView: View {
     let country : Country
     
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView {
                 ForEach(countryRecipeModel.countryRecipesArray, id: \.idMeal) { recipe in
                     
@@ -25,6 +25,8 @@ struct CountryFeedView: View {
                                 Text(recipe.strMeal)
                                     .font(.subheadline)
                                     .foregroundStyle(.black)
+                                    .fontWeight(.semibold)
+                                    .padding(.trailing, 10)
                                 
                             }
                         }
@@ -39,12 +41,13 @@ struct CountryFeedView: View {
                     
                     
                 }
-                .navigationTitle(country.strArea)
             .onAppear {
                 countryRecipeModel.fetchByCountry(countryName: country.strArea)
             }
             }
-            }
+        }
+        .navigationTitle(country.strArea)
+        .navigationBarTitleDisplayMode(.large)
         }
     }
 
