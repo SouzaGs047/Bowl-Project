@@ -13,6 +13,8 @@ struct CountryAndFlag: View {
     var body: some View {
         HStack{
             Text(country)
+                .foregroundStyle(.greyBase)
+                .fontWeight(.semibold)
             Image(country)
                 .resizable()
                 .scaledToFill()

@@ -8,100 +8,153 @@ struct RecipeByIDView: View {
     @Query private var items: [RecipeStorage]
     @State var isSaved = false
     let recipeID : String
-
+    
     
     var body: some View {
         VStack{
-            ScrollView{
-                ForEach(recipeModel.recipesArray, id: \.idMeal) { recipe in
-                    VStack {
-                        AsyncImage(url: recipe.strMealThumb) { recipe in
-                            recipe.image?
-                                .resizable()
-                                .scaledToFill()
+            ForEach(recipeModel.recipesArray, id: \.idMeal) { recipe in
+                VStack{
+                    ZStack{
+                        VStack{
+                            AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fit)
+                            }.frame(width: 398, height: 398)
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                            Spacer()
+                            
                         }
-                        .frame(width: 200, height: 200)
-                        
-                        Text(recipe.strMeal)
-                        CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
-                        
-                        Text(recipe.strInstructions)
-                            .padding()
+                        ScrollView {
+                            VStack{
+                                Spacer()
+                                    .frame(height: 250)
+                                VStack(alignment: .leading){
+                                    
+                                    Text(recipe.strMeal)
+                                        .padding(.top)
+                                        .font(.title2)
+                                        .fontWeight(.semibold)
+                                    
+                                    CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
+                                    VStack (alignment: .leading){
+                                        Text("Ingredients")
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                        Ingredients(measure: recipe.strMeasure1, ingredient: recipe.strIngredient1)
+                                        Ingredients(measure: recipe.strMeasure2, ingredient: recipe.strIngredient2)
+                                        Ingredients(measure: recipe.strMeasure3, ingredient: recipe.strIngredient3)
+                                        Ingredients(measure: recipe.strMeasure4, ingredient: recipe.strIngredient4)
+                                        Ingredients(measure: recipe.strMeasure5, ingredient: recipe.strIngredient5)
+                                        Ingredients(measure: recipe.strMeasure6, ingredient: recipe.strIngredient6)
+                                        Ingredients(measure: recipe.strMeasure7, ingredient: recipe.strIngredient7)
+                                        Ingredients(measure: recipe.strMeasure8, ingredient: recipe.strIngredient8)
+                                        Ingredients(measure: recipe.strMeasure9, ingredient: recipe.strIngredient9)
+                                        Ingredients(measure: recipe.strMeasure10, ingredient: recipe.strIngredient10)
+                                        Ingredients(measure: recipe.strMeasure11, ingredient: recipe.strIngredient11)
+                                        Ingredients(measure: recipe.strMeasure12, ingredient: recipe.strIngredient12)
+                                        Ingredients(measure: recipe.strMeasure13, ingredient: recipe.strIngredient13)
+                                        Ingredients(measure: recipe.strMeasure14, ingredient: recipe.strIngredient14)
+                                        Ingredients(measure: recipe.strMeasure15, ingredient: recipe.strIngredient15)
+                                        Ingredients(measure: recipe.strMeasure16, ingredient: recipe.strIngredient16)
+                                        Ingredients(measure: recipe.strMeasure17, ingredient: recipe.strIngredient17)
+                                        Ingredients(measure: recipe.strMeasure18, ingredient: recipe.strIngredient18)
+                                        Ingredients(measure: recipe.strMeasure19, ingredient: recipe.strIngredient19)
+                                        Ingredients(measure: recipe.strMeasure20, ingredient: recipe.strIngredient20)
+                                        
+                                        RoundedRectangle(cornerRadius: 2)
+                                            .frame(height: 2)
+                                            .foregroundStyle(Color.aquaBase)
+                                        Text("How to prepare")
+                                            .font(.title3)
+                                            .fontWeight(.semibold)
+                                            .padding(.bottom, 7)
+                                        Text(recipe.strInstructions)
+                                    }
+                                    .foregroundStyle(Color.greyBase)
+                                }
+                                .padding(.horizontal, 30)
+                                .padding(.bottom, 30)
+                                .background(Color("FAFAFAColor"))
+                                .clipShape(UnevenRoundedRectangle(topLeadingRadius: 30, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 30, style: .continuous))
+                            }
+                        }
                     }
+                    
                 }
                 
             }
         }
-            .navigationTitle("Recipe Details")
-            .toolbar {
-                Button(action: {
-                    if isSaved {
-                        // Remove a receita do armazenamento se já estiver salva
-                        removeItem(recipeId: recipeModel.recipesArray[0].idMeal)
-                        isSaved = false
-                    } else {
-                        // Adiciona a receita ao armazenamento
-                        addItem(recipeToAdd: Recipe(
-                            idMeal: recipeModel.recipesArray[0].idMeal,
-                            strMeal: recipeModel.recipesArray[0].strMeal,
-                            strCategory: recipeModel.recipesArray[0].strCategory,
-                            strArea: recipeModel.recipesArray[0].strArea,
-                            strInstructions: recipeModel.recipesArray[0].strInstructions,
-                            strMealThumb: recipeModel.recipesArray[0].strMealThumb,
-                            
-                            
-                            strIngredient1: recipeModel.recipesArray[0].strIngredient1,
-                                strIngredient2: recipeModel.recipesArray[0].strIngredient2,
-                                strIngredient3: recipeModel.recipesArray[0].strIngredient3,
-                                strIngredient4: recipeModel.recipesArray[0].strIngredient4,
-                                strIngredient5: recipeModel.recipesArray[0].strIngredient5,
-                                strIngredient6: recipeModel.recipesArray[0].strIngredient6,
-                                strIngredient7: recipeModel.recipesArray[0].strIngredient7,
-                                strIngredient8: recipeModel.recipesArray[0].strIngredient8,
-                                strIngredient9: recipeModel.recipesArray[0].strIngredient9,
-                                strIngredient10: recipeModel.recipesArray[0].strIngredient10,
-                                strIngredient11: recipeModel.recipesArray[0].strIngredient11,
-                                strIngredient12: recipeModel.recipesArray[0].strIngredient12,
-                                strIngredient13: recipeModel.recipesArray[0].strIngredient13,
-                                strIngredient14: recipeModel.recipesArray[0].strIngredient14,
-                                strIngredient15: recipeModel.recipesArray[0].strIngredient15,
-                                strIngredient16: recipeModel.recipesArray[0].strIngredient16,
-                                strIngredient17: recipeModel.recipesArray[0].strIngredient17,
-                                strIngredient18: recipeModel.recipesArray[0].strIngredient18,
-                                strIngredient19: recipeModel.recipesArray[0].strIngredient19,
-                                strIngredient20: recipeModel.recipesArray[0].strIngredient20,
-                                strMeasure1: recipeModel.recipesArray[0].strMeasure1,
-                                strMeasure2: recipeModel.recipesArray[0].strMeasure2,
-                                strMeasure3: recipeModel.recipesArray[0].strMeasure3,
-                                strMeasure4: recipeModel.recipesArray[0].strMeasure4,
-                                strMeasure5: recipeModel.recipesArray[0].strMeasure5,
-                                strMeasure6: recipeModel.recipesArray[0].strMeasure6,
-                                strMeasure7: recipeModel.recipesArray[0].strMeasure7,
-                                strMeasure8: recipeModel.recipesArray[0].strMeasure8,
-                                strMeasure9: recipeModel.recipesArray[0].strMeasure9,
-                                strMeasure10: recipeModel.recipesArray[0].strMeasure10,
-                                strMeasure11: recipeModel.recipesArray[0].strMeasure11,
-                                strMeasure12: recipeModel.recipesArray[0].strMeasure12,
-                                strMeasure13: recipeModel.recipesArray[0].strMeasure13,
-                                strMeasure14: recipeModel.recipesArray[0].strMeasure14,
-                                strMeasure15: recipeModel.recipesArray[0].strMeasure15,
-                                strMeasure16: recipeModel.recipesArray[0].strMeasure16,
-                                strMeasure17: recipeModel.recipesArray[0].strMeasure17,
-                                strMeasure18: recipeModel.recipesArray[0].strMeasure18,
-                                strMeasure19: recipeModel.recipesArray[0].strMeasure19,
-                                strMeasure20: recipeModel.recipesArray[0].strMeasure20))
-
-                            
-                        isSaved = true
-                    }
-                }, label: {
-                    Image(isSaved ? "favorite.fill" : "favorite")
-                })
-            }
+        .navigationTitle("Recipe Details")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button(action: {
+                if isSaved {
+                    // Remove a receita do armazenamento se já estiver salva
+                    removeItem(recipeId: recipeModel.recipesArray[0].idMeal)
+                    isSaved = false
+                } else {
+                    // Adiciona a receita ao armazenamento
+                    addItem(recipeToAdd: Recipe(
+                        idMeal: recipeModel.recipesArray[0].idMeal,
+                        strMeal: recipeModel.recipesArray[0].strMeal,
+                        strCategory: recipeModel.recipesArray[0].strCategory,
+                        strArea: recipeModel.recipesArray[0].strArea,
+                        strInstructions: recipeModel.recipesArray[0].strInstructions,
+                        strMealThumb: recipeModel.recipesArray[0].strMealThumb,
+                        
+                        
+                        strIngredient1: recipeModel.recipesArray[0].strIngredient1,
+                        strIngredient2: recipeModel.recipesArray[0].strIngredient2,
+                        strIngredient3: recipeModel.recipesArray[0].strIngredient3,
+                        strIngredient4: recipeModel.recipesArray[0].strIngredient4,
+                        strIngredient5: recipeModel.recipesArray[0].strIngredient5,
+                        strIngredient6: recipeModel.recipesArray[0].strIngredient6,
+                        strIngredient7: recipeModel.recipesArray[0].strIngredient7,
+                        strIngredient8: recipeModel.recipesArray[0].strIngredient8,
+                        strIngredient9: recipeModel.recipesArray[0].strIngredient9,
+                        strIngredient10: recipeModel.recipesArray[0].strIngredient10,
+                        strIngredient11: recipeModel.recipesArray[0].strIngredient11,
+                        strIngredient12: recipeModel.recipesArray[0].strIngredient12,
+                        strIngredient13: recipeModel.recipesArray[0].strIngredient13,
+                        strIngredient14: recipeModel.recipesArray[0].strIngredient14,
+                        strIngredient15: recipeModel.recipesArray[0].strIngredient15,
+                        strIngredient16: recipeModel.recipesArray[0].strIngredient16,
+                        strIngredient17: recipeModel.recipesArray[0].strIngredient17,
+                        strIngredient18: recipeModel.recipesArray[0].strIngredient18,
+                        strIngredient19: recipeModel.recipesArray[0].strIngredient19,
+                        strIngredient20: recipeModel.recipesArray[0].strIngredient20,
+                        strMeasure1: recipeModel.recipesArray[0].strMeasure1,
+                        strMeasure2: recipeModel.recipesArray[0].strMeasure2,
+                        strMeasure3: recipeModel.recipesArray[0].strMeasure3,
+                        strMeasure4: recipeModel.recipesArray[0].strMeasure4,
+                        strMeasure5: recipeModel.recipesArray[0].strMeasure5,
+                        strMeasure6: recipeModel.recipesArray[0].strMeasure6,
+                        strMeasure7: recipeModel.recipesArray[0].strMeasure7,
+                        strMeasure8: recipeModel.recipesArray[0].strMeasure8,
+                        strMeasure9: recipeModel.recipesArray[0].strMeasure9,
+                        strMeasure10: recipeModel.recipesArray[0].strMeasure10,
+                        strMeasure11: recipeModel.recipesArray[0].strMeasure11,
+                        strMeasure12: recipeModel.recipesArray[0].strMeasure12,
+                        strMeasure13: recipeModel.recipesArray[0].strMeasure13,
+                        strMeasure14: recipeModel.recipesArray[0].strMeasure14,
+                        strMeasure15: recipeModel.recipesArray[0].strMeasure15,
+                        strMeasure16: recipeModel.recipesArray[0].strMeasure16,
+                        strMeasure17: recipeModel.recipesArray[0].strMeasure17,
+                        strMeasure18: recipeModel.recipesArray[0].strMeasure18,
+                        strMeasure19: recipeModel.recipesArray[0].strMeasure19,
+                        strMeasure20: recipeModel.recipesArray[0].strMeasure20))
+                    
+                    
+                    isSaved = true
+                }
+            }, label: {
+                Image(isSaved ? "favorite.fill" : "favorite")
+            })
+        }
         .onAppear {
             recipeModel.fetchByID(id: recipeID)
             isSaved = isRecipeSaved()
-
+            
         }
     }
     

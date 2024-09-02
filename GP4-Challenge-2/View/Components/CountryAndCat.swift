@@ -13,15 +13,16 @@ struct CountryAndCat: View {
     
     var body: some View {
         HStack(spacing: 30){
-            Spacer()
+
             Text(category)
-                .padding(.horizontal, 7)
-                .background(RoundedRectangle(cornerRadius: 50).fill(Color("secondaryColor")))
+                .foregroundStyle(.FAFAFA)
+                .fontWeight(.semibold)
+                .padding(.horizontal, 12)
+                .background(RoundedRectangle(cornerRadius: 50).fill(Color("aquaBaseColor")))
                 
-    
+            Spacer()
             CountryAndFlag(country: country)
-                Spacer()
-            
+
         }
     }
 }

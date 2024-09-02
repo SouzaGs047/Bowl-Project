@@ -15,7 +15,7 @@ struct Ingredients: View {
     
     var body: some View {
             if (ingredient ?? "" != "" ) {
-                Text("\(measure ?? "") of \(ingredient ?? "")")
+                Text("• \(measure ?? "") of \(ingredient ?? "");")
         }
     }
 }

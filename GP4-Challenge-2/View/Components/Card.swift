@@ -14,7 +14,7 @@ struct Card: View {
         ZStack(alignment: .leading) {
             RoundedRectangle(cornerRadius: 15.0)
                 .fill(.thinMaterial)
-                .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 5)
+                .shadow(color: .black.opacity(0.03), radius: 3, x: 0, y: 5)
                 .shadow(radius: 0.5)
             HStack {
                 AsyncImage(url: recipe.strMealThumb){result in result.image?
@@ -36,6 +36,8 @@ struct Card: View {
                         Image(recipe.strArea)
                             .resizable()
                             .frame(width: 34,height: 22)
+                            .clipShape(RoundedRectangle(cornerRadius: 3))
+                            .shadow(radius: 0.5)
                         Text(recipe.strArea)
                             .font(.caption2)
                             .shadow(radius: 0.5)
@@ -43,7 +45,7 @@ struct Card: View {
                         Text(recipe.strCategory)
                             .font(.caption2)
                             .padding(.horizontal,5)
-                            .background(RoundedRectangle(cornerRadius: 25.0).fill(Color("secondaryColor")))
+                            .background(RoundedRectangle(cornerRadius: 25.0).fill(Color("aquaBaseColor")))
                             .foregroundColor(.white)
                             .fontWeight(.semibold)
                             

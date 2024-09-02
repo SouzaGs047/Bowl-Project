@@ -52,11 +52,11 @@ struct ContentView: View {
                 
             }.tabItem() {
                 Image(selectedTab == 4 ? "bookmark.fill" : "bookmark")
-                Text("Favorites")
+                Text("Bookmarks")
             }
             .tag(4)
         })
-        .tint(.base)
+        .tint(.redBase)
         
     }
 }

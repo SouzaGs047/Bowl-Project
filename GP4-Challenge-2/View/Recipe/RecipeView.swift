@@ -10,38 +10,77 @@ struct RecipeView: View {
     
     var body: some View {
         VStack{
-            AsyncImage(url: recipe.strMealThumb){result in result.image?
-                    .resizable()
-                    .scaledToFill()
-            }.frame(width: 400, height: 400)
-            
-            Text(recipe.strMeal)
-            CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
-            Ingredients(measure: recipe.strMeasure1, ingredient: recipe.strIngredient1)
-            Ingredients(measure: recipe.strMeasure2, ingredient: recipe.strIngredient2)
-            Ingredients(measure: recipe.strMeasure3, ingredient: recipe.strIngredient3)
-            Ingredients(measure: recipe.strMeasure4, ingredient: recipe.strIngredient4)
-            Ingredients(measure: recipe.strMeasure5, ingredient: recipe.strIngredient5)
-            Ingredients(measure: recipe.strMeasure6, ingredient: recipe.strIngredient6)
-            Ingredients(measure: recipe.strMeasure7, ingredient: recipe.strIngredient7)
-            Ingredients(measure: recipe.strMeasure8, ingredient: recipe.strIngredient8)
-            Ingredients(measure: recipe.strMeasure9, ingredient: recipe.strIngredient9)
-            Ingredients(measure: recipe.strMeasure10, ingredient: recipe.strIngredient10)
-            Ingredients(measure: recipe.strMeasure11, ingredient: recipe.strIngredient11)
-            Ingredients(measure: recipe.strMeasure12, ingredient: recipe.strIngredient12)
-            Ingredients(measure: recipe.strMeasure13, ingredient: recipe.strIngredient13)
-            Ingredients(measure: recipe.strMeasure14, ingredient: recipe.strIngredient14)
-            Ingredients(measure: recipe.strMeasure15, ingredient: recipe.strIngredient15)
-            Ingredients(measure: recipe.strMeasure16, ingredient: recipe.strIngredient16)
-            Ingredients(measure: recipe.strMeasure17, ingredient: recipe.strIngredient17)
-            Ingredients(measure: recipe.strMeasure18, ingredient: recipe.strIngredient18)
-            Ingredients(measure: recipe.strMeasure19, ingredient: recipe.strIngredient19)
-            Ingredients(measure: recipe.strMeasure20, ingredient: recipe.strIngredient20)
-            
-            
-            Text(recipe.strInstructions)
-                .padding()
+                ZStack{
+                    VStack{
+                        AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                .resizable()
+                                .aspectRatio(contentMode: .fit)
+                        }.frame(width: 398, height: 398)
+                            .clipShape(RoundedRectangle(cornerRadius: 30))
+                        Spacer()
+                        
+                    }
+                    ScrollView {
+                    VStack{
+                        Spacer()
+                            .frame(height: 250)
+                        VStack(alignment: .leading){
+                            
+                            Text(recipe.strMeal)
+                                .padding(.top)
+                                .font(.title2)
+                                .fontWeight(.semibold)
+                            
+                            CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
+                            VStack (alignment: .leading){
+                                Text("Ingredients")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                Ingredients(measure: recipe.strMeasure1, ingredient: recipe.strIngredient1)
+                                Ingredients(measure: recipe.strMeasure2, ingredient: recipe.strIngredient2)
+                                Ingredients(measure: recipe.strMeasure3, ingredient: recipe.strIngredient3)
+                                Ingredients(measure: recipe.strMeasure4, ingredient: recipe.strIngredient4)
+                                Ingredients(measure: recipe.strMeasure5, ingredient: recipe.strIngredient5)
+                                Ingredients(measure: recipe.strMeasure6, ingredient: recipe.strIngredient6)
+                                Ingredients(measure: recipe.strMeasure7, ingredient: recipe.strIngredient7)
+                                Ingredients(measure: recipe.strMeasure8, ingredient: recipe.strIngredient8)
+                                Ingredients(measure: recipe.strMeasure9, ingredient: recipe.strIngredient9)
+                                Ingredients(measure: recipe.strMeasure10, ingredient: recipe.strIngredient10)
+                                Ingredients(measure: recipe.strMeasure11, ingredient: recipe.strIngredient11)
+                                Ingredients(measure: recipe.strMeasure12, ingredient: recipe.strIngredient12)
+                                Ingredients(measure: recipe.strMeasure13, ingredient: recipe.strIngredient13)
+                                Ingredients(measure: recipe.strMeasure14, ingredient: recipe.strIngredient14)
+                                Ingredients(measure: recipe.strMeasure15, ingredient: recipe.strIngredient15)
+                                Ingredients(measure: recipe.strMeasure16, ingredient: recipe.strIngredient16)
+                                Ingredients(measure: recipe.strMeasure17, ingredient: recipe.strIngredient17)
+                                Ingredients(measure: recipe.strMeasure18, ingredient: recipe.strIngredient18)
+                                Ingredients(measure: recipe.strMeasure19, ingredient: recipe.strIngredient19)
+                                Ingredients(measure: recipe.strMeasure20, ingredient: recipe.strIngredient20)
+                                
+                                RoundedRectangle(cornerRadius: 2)
+                                    .frame(height: 2)
+                                    .foregroundStyle(Color.aquaBase)
+                                Text("How to prepare")
+                                    .font(.title3)
+                                    .fontWeight(.semibold)
+                                    .padding(.bottom, 7)
+                                Text(recipe.strInstructions)
+                            }
+                            .foregroundStyle(Color.greyBase)
+                        }
+                        .padding(.horizontal, 30)
+                        .padding(.bottom, 30)
+                            .background(Color("FAFAFAColor"))
+                            .clipShape(UnevenRoundedRectangle(topLeadingRadius: 30, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 30, style: .continuous))
+                        
+                    }
+                    
+                    //.offset(x:0, y: 250)
+                    
+                }
+            }
         } .navigationTitle("Recipe Details")
+            .navigationBarTitleDisplayMode(.inline)
             .toolbar {
                 Button(action: {
                     if isSaved {
@@ -54,7 +93,7 @@ struct RecipeView: View {
                         isSaved = true
                     }
                 }, label: {
-                    Image(isSaved ? "favorite.fill" : "favorite")
+                    Image(isSaved ? "bookmark.fill" : "bookmark")
                 })
                 
                 .onAppear {

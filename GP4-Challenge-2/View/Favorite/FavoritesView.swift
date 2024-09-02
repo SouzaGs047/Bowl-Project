@@ -104,7 +104,8 @@ struct FavoritesView: View {
                     EditButton()
                 }
             }
-        }            .navigationTitle("Favorites")
+        }            .navigationTitle("Bookmarks")
+            .navigationBarTitleDisplayMode(.inline)
 
     }
 

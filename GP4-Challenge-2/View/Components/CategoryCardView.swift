@@ -14,29 +14,41 @@ struct CategoryCardView: View {
             RoundedRectangle(cornerRadius: 25.0)
                 .fill(.thinMaterial)
                 .frame(height: 150)
+                .shadow(color: .black.opacity(0.03), radius: 3, x: 0, y: 5)
+                .shadow(radius: 0.5)
             HStack {
                 AsyncImage(url: category.strCategoryThumb){result in result.image?
                         .resizable()
-                        .scaledToFit()
-                }.frame(width: 150,height: 150)
+                        .aspectRatio(contentMode: category.strCategory == "Goat" || category.strCategory == "Breakfast" ? .fill : .fit)
+                   
+                }.frame(width: 150, height: 150)
+                    .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
+                    .scaledToFill()
                 VStack(alignment: .leading) {
-                    Text(category.strCategory)
-                        .font(.headline)
-                        .fontWeight(.semibold)
-                        .foregroundStyle(Color("supportColor"))
+                    HStack {
+                        Text(category.strCategory)
+                            .font(.headline)
+                            .fontWeight(.semibold)
+                            .foregroundStyle(Color("darkGreyBaseColor"))
+                            .padding(.horizontal)
+                        Spacer()
+                        Image(systemName: "chevron.right")
+                            .opacity(0.2)
+                            .bold()
+                            .padding(.trailing)
+                    }
                 }
             }
-            .padding(.horizontal)
+//
         }
         .padding()
         .padding(.top,5)
         .frame(height: 150)
-        .shadow(color: .black.opacity(0.1), radius: 3, x: 0, y: 5)
-        .shadow(radius: 0.5)
+        
     }
 }
 
 #Preview {
-    CategoryCardView(category: Category(idCategory: "1", strCategory: "Beef", strCategoryThumb: URL(string: "https://www.themealdb.com/images/category/beef.png")!, strCategoryDescription: "sss"))
+    CategoryCardView(category: Category(idCategory: "1", strCategory: "Goat", strCategoryThumb: URL(string: "https://www.themealdb.com/images/category/goat.png")!, strCategoryDescription: "sss"))
 }

@@ -22,7 +22,7 @@ struct CountryCard: View {
                     .shadow(radius: 0.3)
                 Text(country)
                     .fontWeight(.semibold)
-                    .foregroundColor(Color("supportColor"))
+                    .foregroundColor(Color("darkGreyBaseColor"))
                     .offset(x: 0, y: -5)
             }
         }.frame(width: 150, height: 130)

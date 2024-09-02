@@ -22,13 +22,14 @@ struct GenerateRandomRecipeView: View {
                 NavigationLink(destination: RandomRecipeView()) {
                     
                     Text("Randomize")
-                        .font(.title)
+                        .font(.title2)
                         .fontWeight(.semibold)
                         .padding(8)
                         .padding(.horizontal, 20)
                         .foregroundStyle(.white)
-                        .background(Color("secondaryColor"))
+                        .background(Color("aquaBaseColor"))
                         .clipShape(RoundedRectangle(cornerRadius: 50))
+                        .shadow(color: .black.opacity(0.08), radius: 3, x: 0, y: 5)
                 }
                 
                 
