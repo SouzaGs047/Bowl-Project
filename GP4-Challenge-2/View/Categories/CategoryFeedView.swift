@@ -11,29 +11,12 @@ struct CategoryFeedView: View {
                 ForEach(countryRecipeModel.countryRecipesArray, id: \.idMeal) { recipe in
                     
                     NavigationLink(destination: RecipeByIDView(recipeID: recipe.idMeal)) {
-                        ZStack(alignment: .leading) {
-                            RoundedRectangle(cornerRadius: 25.0)
-                                .fill(.thinMaterial)
-                            HStack {
-                                AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                        .resizable()
-                                        .scaledToFill()
-                                }.frame(width: 150,height: 150)
-                                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                                
-                                VStack(alignment: .leading) {
-                                    Text(recipe.strMeal)
-                                        .font(.subheadline)
-                                        .foregroundStyle(.black)
-                                        .fontWeight(.semibold)
-                                        .padding(.trailing, 10)
-                                    
-                                }
-                            }
-                        }
+                        CategoryCard(recipe: recipe)
                     }.buttonStyle(PlainButtonStyle())
                         .padding(.horizontal)
                         .frame(height: 150)
+                        .padding(.vertical,7)
+                        .padding(.horizontal, 5)
                 }
                 .navigationTitle(category.strCategory)
                 .onAppear {
@@ -48,6 +31,6 @@ struct CategoryFeedView: View {
 }
 
 
-//#Preview {
-//    CategoryFeedView(category: Category(idCategory: "22", strCategory: "Seafood", strCategoryThumb: "ss", strCategoryDescription: "sss"))
-//}
+#Preview {
+    CategoryFeedView(category: Category(idCategory: "22", strCategory: "Seafood", strCategoryThumb: URL(string: "https://www.themealdb.com/images/category/beef.png")!, strCategoryDescription: "sss"))
+}

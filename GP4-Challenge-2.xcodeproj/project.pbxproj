@@ -34,6 +34,8 @@
 		9F8EEEBD2C7E75EF00D02E55 /* RecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EEEBC2C7E75EF00D02E55 /* RecipeView.swift */; };
 		9F8EEEBF2C7E761300D02E55 /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */; };
 		9F8EEEC12C7E76AB00D02E55 /* GenerateRandomRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F8EEEC02C7E76AB00D02E55 /* GenerateRandomRecipeView.swift */; };
+		AE0F73CB2C8254DB0005DD17 /* CategoryCard.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F73CA2C8254DB0005DD17 /* CategoryCard.swift */; };
+		AE0F73CD2C8269440005DD17 /* CountryAndFlag.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE0F73CC2C8269440005DD17 /* CountryAndFlag.swift */; };
 		AE4519822C77D72C00752D40 /* GP4_Challenge_2App.swift in Sources */ = {isa = PBXBuildFile; fileRef = AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */; };
 		AE4519882C77D72D00752D40 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE4519872C77D72D00752D40 /* Assets.xcassets */; };
 		AE45198B2C77D72D00752D40 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = AE45198A2C77D72D00752D40 /* Preview Assets.xcassets */; };
@@ -69,6 +71,8 @@
 		9F8EEEBC2C7E75EF00D02E55 /* RecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeView.swift; sourceTree = "<group>"; };
 		9F8EEEBE2C7E761300D02E55 /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		9F8EEEC02C7E76AB00D02E55 /* GenerateRandomRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerateRandomRecipeView.swift; sourceTree = "<group>"; };
+		AE0F73CA2C8254DB0005DD17 /* CategoryCard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCard.swift; sourceTree = "<group>"; };
+		AE0F73CC2C8269440005DD17 /* CountryAndFlag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryAndFlag.swift; sourceTree = "<group>"; };
 		AE45197E2C77D72C00752D40 /* GP4-Challenge-2.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "GP4-Challenge-2.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		AE4519812C77D72C00752D40 /* GP4_Challenge_2App.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GP4_Challenge_2App.swift; sourceTree = "<group>"; };
 		AE4519872C77D72D00752D40 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -96,6 +100,8 @@
 				7B772C162C80E847009E8DD5 /* CountryCard.swift */,
 				7B772C182C80E890009E8DD5 /* Ingredients.swift */,
 				7B772C1A2C80E8A8009E8DD5 /* CountryAndCat.swift */,
+				AE0F73CC2C8269440005DD17 /* CountryAndFlag.swift */,
+				AE0F73CA2C8254DB0005DD17 /* CategoryCard.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -325,6 +331,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AE0F73CD2C8269440005DD17 /* CountryAndFlag.swift in Sources */,
 				9F0F77C02C7E45C800075740 /* Recipe.swift in Sources */,
 				9F0F77C32C7E461100075740 /* RecipeModel.swift in Sources */,
 				9F8EEEC12C7E76AB00D02E55 /* GenerateRandomRecipeView.swift in Sources */,
@@ -353,6 +360,7 @@
 				9F3D5C172C7FA5EC00801AFC /* CountryRecipe.swift in Sources */,
 				7B772C1B2C80E8A8009E8DD5 /* CountryAndCat.swift in Sources */,
 				9F0F77C72C7E49E000075740 /* Category.swift in Sources */,
+				AE0F73CB2C8254DB0005DD17 /* CategoryCard.swift in Sources */,
 				7BB5CCB02C7E674C00F9C0F8 /* Card.swift in Sources */,
 				9F3D5C132C7FA30000801AFC /* CountryFeedView.swift in Sources */,
 			);
