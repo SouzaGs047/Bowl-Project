@@ -87,7 +87,7 @@ struct SliderCategoriesView: View {
                     LazyVGrid(columns: columns) {
                         ForEach(countryModel.countriesArray, id: \.self) { country in
                             NavigationLink(destination: CountryFeedView(country: country)) {
-                                CountryCard(country: country.strArea, flag: country.strArea)
+                                CountryCard(country: country.strArea)
                             }.buttonStyle(PlainButtonStyle())
                                 .padding(.top, 1)
                                 .padding(.bottom, 20)

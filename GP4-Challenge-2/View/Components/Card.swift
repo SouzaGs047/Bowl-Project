@@ -20,6 +20,8 @@ struct Card: View {
                 AsyncImage(url: recipe.strMealThumb){result in result.image?
                         .resizable()
                         .scaledToFill()
+                        .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                        .shadow(radius: 0.3)
                 }.frame(width: 150,height: 150)
                     .clipShape(RoundedRectangle(cornerRadius: 15.0))
                 VStack(alignment: .leading) {
