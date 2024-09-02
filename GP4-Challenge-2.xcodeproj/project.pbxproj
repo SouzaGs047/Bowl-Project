@@ -11,6 +11,7 @@
 		7B772C192C80E890009E8DD5 /* Ingredients.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B772C182C80E890009E8DD5 /* Ingredients.swift */; };
 		7B772C1B2C80E8A8009E8DD5 /* CountryAndCat.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7B772C1A2C80E8A8009E8DD5 /* CountryAndCat.swift */; };
 		7BB5CCB02C7E674C00F9C0F8 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7BB5CCAF2C7E674C00F9C0F8 /* Card.swift */; };
+		9F0D31992C8296980025D8F3 /* SplashScreenView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0D31982C8296980025D8F3 /* SplashScreenView.swift */; };
 		9F0F77C02C7E45C800075740 /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77BF2C7E45C800075740 /* Recipe.swift */; };
 		9F0F77C32C7E461100075740 /* RecipeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77C22C7E461100075740 /* RecipeModel.swift */; };
 		9F0F77C52C7E49C900075740 /* RecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77C42C7E49C900075740 /* RecipeResponse.swift */; };
@@ -21,6 +22,7 @@
 		9F0F77D12C7E4B8A00075740 /* CountryModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D02C7E4B8A00075740 /* CountryModel.swift */; };
 		9F0F77D32C7E4B9300075740 /* CountryResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D22C7E4B9300075740 /* CountryResponse.swift */; };
 		9F0F77D72C7E4CFB00075740 /* RandomRecipeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F0F77D62C7E4CFB00075740 /* RandomRecipeView.swift */; };
+		9F27104A2C8244C200575F31 /* RecipeStorage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F2710492C8244C200575F31 /* RecipeStorage.swift */; };
 		9F3D5C132C7FA30000801AFC /* CountryFeedView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3D5C122C7FA30000801AFC /* CountryFeedView.swift */; };
 		9F3D5C172C7FA5EC00801AFC /* CountryRecipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3D5C162C7FA5EC00801AFC /* CountryRecipe.swift */; };
 		9F3D5C192C7FA61400801AFC /* CountryRecipeResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9F3D5C182C7FA61400801AFC /* CountryRecipeResponse.swift */; };
@@ -44,6 +46,7 @@
 		7B772C182C80E890009E8DD5 /* Ingredients.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Ingredients.swift; sourceTree = "<group>"; };
 		7B772C1A2C80E8A8009E8DD5 /* CountryAndCat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryAndCat.swift; sourceTree = "<group>"; };
 		7BB5CCAF2C7E674C00F9C0F8 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		9F0D31982C8296980025D8F3 /* SplashScreenView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashScreenView.swift; sourceTree = "<group>"; };
 		9F0F77BF2C7E45C800075740 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		9F0F77C22C7E461100075740 /* RecipeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeModel.swift; sourceTree = "<group>"; };
 		9F0F77C42C7E49C900075740 /* RecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeResponse.swift; sourceTree = "<group>"; };
@@ -54,6 +57,7 @@
 		9F0F77D02C7E4B8A00075740 /* CountryModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryModel.swift; sourceTree = "<group>"; };
 		9F0F77D22C7E4B9300075740 /* CountryResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryResponse.swift; sourceTree = "<group>"; };
 		9F0F77D62C7E4CFB00075740 /* RandomRecipeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RandomRecipeView.swift; sourceTree = "<group>"; };
+		9F2710492C8244C200575F31 /* RecipeStorage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStorage.swift; sourceTree = "<group>"; };
 		9F3D5C122C7FA30000801AFC /* CountryFeedView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryFeedView.swift; sourceTree = "<group>"; };
 		9F3D5C162C7FA5EC00801AFC /* CountryRecipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRecipe.swift; sourceTree = "<group>"; };
 		9F3D5C182C7FA61400801AFC /* CountryRecipeResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryRecipeResponse.swift; sourceTree = "<group>"; };
@@ -96,13 +100,21 @@
 			path = Components;
 			sourceTree = "<group>";
 		};
+		9F0D319A2C82985B0025D8F3 /* SplashScreen */ = {
+			isa = PBXGroup;
+			children = (
+				9F0D31982C8296980025D8F3 /* SplashScreenView.swift */,
+			);
+			path = SplashScreen;
+			sourceTree = "<group>";
+		};
 		9F0F77C12C7E460100075740 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				9F3D5C152C7FA5B900801AFC /* CountryRecipe */,
-				AE404F752C7E4ED2002EB2CA /* Recipe */,
 				AE41D78A2C7E50370043F100 /* Category */,
 				AE41D78B2C7E504A0043F100 /* Country */,
+				9F3D5C152C7FA5B900801AFC /* CountryRecipe */,
+				AE404F752C7E4ED2002EB2CA /* Recipe */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -167,6 +179,7 @@
 				9F0F77C22C7E461100075740 /* RecipeModel.swift */,
 				9F0F77BF2C7E45C800075740 /* Recipe.swift */,
 				9F0F77C42C7E49C900075740 /* RecipeResponse.swift */,
+				9F2710492C8244C200575F31 /* RecipeStorage.swift */,
 			);
 			path = Recipe;
 			sourceTree = "<group>";
@@ -231,12 +244,13 @@
 		AEB3A8302C8125B400639534 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				7BB5CCAE2C7E671A00F9C0F8 /* Components */,
-				AE0F73C92C8243A70005DD17 /* Random */,
-				AE0F73C82C8243950005DD17 /* Favorite */,
 				AE0F73C72C8243410005DD17 /* Categories */,
+				7BB5CCAE2C7E671A00F9C0F8 /* Components */,
+				AE0F73C82C8243950005DD17 /* Favorite */,
 				AE0F73C62C8243270005DD17 /* Feed */,
+				AE0F73C92C8243A70005DD17 /* Random */,
 				AE0F73C52C8243120005DD17 /* Recipe */,
+				9F0D319A2C82985B0025D8F3 /* SplashScreen */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -323,10 +337,12 @@
 				9F3D5C212C7FC0C500801AFC /* CategoryCardView.swift in Sources */,
 				AE4519822C77D72C00752D40 /* GP4_Challenge_2App.swift in Sources */,
 				9F3D5C192C7FA61400801AFC /* CountryRecipeResponse.swift in Sources */,
+				9F27104A2C8244C200575F31 /* RecipeStorage.swift in Sources */,
 				9F0F77C92C7E49EB00075740 /* CategoryModel.swift in Sources */,
 				9F8EEEBF2C7E761300D02E55 /* FavoritesView.swift in Sources */,
 				9F3D5C1D2C7FAA7E00801AFC /* RecipeByIDView.swift in Sources */,
 				9F0F77C52C7E49C900075740 /* RecipeResponse.swift in Sources */,
+				9F0D31992C8296980025D8F3 /* SplashScreenView.swift in Sources */,
 				AE568E302C7E5B04002ECCBC /* ContentView.swift in Sources */,
 				9F8EEEBD2C7E75EF00D02E55 /* RecipeView.swift in Sources */,
 				9F3D5C1F2C7FBEF200801AFC /* CategoryFeedView.swift in Sources */,
@@ -475,21 +491,25 @@
 				DEVELOPMENT_TEAM = 2ULRN6JS84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.academy.GP4-Challenge-2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.academy.bowl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -504,21 +524,25 @@
 				DEVELOPMENT_TEAM = 2ULRN6JS84;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.food-and-drink";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.academy.GP4-Challenge-2";
+				PRODUCT_BUNDLE_IDENTIFIER = com.academy.bowl;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

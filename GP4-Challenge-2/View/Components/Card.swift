@@ -26,6 +26,7 @@ struct Card: View {
                     Text(recipe.strMeal)
                         .font(.subheadline)
                         .foregroundStyle(.black)
+                        .fontWeight(.semibold)
                     Text(recipe.strCategory)
                         .font(.caption)
                     HStack {

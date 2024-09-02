@@ -6,47 +6,46 @@ struct CategoryFeedView: View {
     let category : Category
     
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView {
                 ForEach(countryRecipeModel.countryRecipesArray, id: \.idMeal) { recipe in
                     
                     NavigationLink(destination: RecipeByIDView(recipeID: recipe.idMeal)) {
-                    ZStack(alignment: .leading) {
-                        RoundedRectangle(cornerRadius: 25.0)
-                            .fill(.thinMaterial)
-                        HStack {
-                            AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                    .resizable()
-                                    .scaledToFill()
-                            }.frame(width: 150,height: 150)
-                                .clipShape(RoundedRectangle(cornerRadius: 25.0))
-                            
-                            VStack(alignment: .leading) {
-                                Text(recipe.strMeal)
-                                    .font(.subheadline)
-                                    .foregroundStyle(.black)
+                        ZStack(alignment: .leading) {
+                            RoundedRectangle(cornerRadius: 25.0)
+                                .fill(.thinMaterial)
+                            HStack {
+                                AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                        .resizable()
+                                        .scaledToFill()
+                                }.frame(width: 150,height: 150)
+                                    .clipShape(RoundedRectangle(cornerRadius: 25.0))
                                 
+                                VStack(alignment: .leading) {
+                                    Text(recipe.strMeal)
+                                        .font(.subheadline)
+                                        .foregroundStyle(.black)
+                                        .fontWeight(.semibold)
+                                        .padding(.trailing, 10)
+                                    
+                                }
                             }
                         }
-                        
-                        
-                        
-                        
-                    }
-                }.buttonStyle(PlainButtonStyle())
+                    }.buttonStyle(PlainButtonStyle())
                         .padding(.horizontal)
                         .frame(height: 150)
-                    
-                    
                 }
                 .navigationTitle(category.strCategory)
-            .onAppear {
-                countryRecipeModel.fetchByCategory(categoryName: category.strCategory)
-            }
-            }
+                .onAppear {
+                    countryRecipeModel.fetchByCategory(categoryName: category.strCategory)
+                }
             }
         }
+        .navigationTitle(category.strCategory)
+        .navigationBarTitleDisplayMode(.large)
+
     }
+}
 
 
 //#Preview {

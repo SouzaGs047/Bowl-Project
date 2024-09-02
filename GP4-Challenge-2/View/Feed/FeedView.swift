@@ -1,14 +1,19 @@
 import SwiftUI
+import SwiftData
 
 struct FeedView: View {
+    @Environment(\.modelContext) private var modelContext
+
     @StateObject var recipeModel = RecipeModel()
+    @Query private var items: [RecipeStorage]
+
     @State private var searchTerm = ""
     
     var body: some View {
-        NavigationView {
+        VStack {
             ScrollView{
                 HStack{
-                    Text("Recommendations")
+                    Text("Suggestions")
                         .font(.title2)
                         .fontWeight(.semibold)
                         .padding(.horizontal,17)
@@ -20,7 +25,6 @@ struct FeedView: View {
                             .padding(.bottom, 12)
                     }.buttonStyle(PlainButtonStyle())
                 }
-                .navigationTitle("Recipes")
                 .searchable(text: $searchTerm, prompt: "Search recipes")
                 .onAppear(){
                     if(searchTerm.isEmpty){
@@ -39,6 +43,8 @@ struct FeedView: View {
                 }
             }
         }
+        .navigationTitle("Recipes")
+
     }
 }
 
