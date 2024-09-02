@@ -44,7 +44,7 @@ struct FeedView: View {
             }
         }
         .navigationTitle("Recipes")
-
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

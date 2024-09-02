@@ -16,11 +16,18 @@ struct RecipeByIDView: View {
                 VStack{
                     ZStack{
                         VStack{
-                            AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            }.frame(width: 398, height: 398)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                            Rectangle()
+                            
+                                .frame(width: 398, height: 398)
+                                .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .offset(y: -50)
+                                }.frame(width: 398, height: 398)
+                                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                                )
+                                .foregroundStyle(.white)
+                            
                             Spacer()
                             
                         }
@@ -148,7 +155,7 @@ struct RecipeByIDView: View {
                     isSaved = true
                 }
             }, label: {
-                Image(isSaved ? "favorite.fill" : "favorite")
+                Image(isSaved ? "bookmark.fill" : "bookmark")
             })
         }
         .onAppear {

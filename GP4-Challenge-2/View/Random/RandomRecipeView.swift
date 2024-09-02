@@ -13,11 +13,18 @@ struct RandomRecipeView: View {
                 VStack{
                     ZStack{
                         VStack{
-                            AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fit)
-                            }.frame(width: 398, height: 398)
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                            Rectangle()
+                            
+                                .frame(width: 398, height: 398)
+                                .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                        .resizable()
+                                        .aspectRatio(contentMode: .fit)
+                                        .offset(y: -50)
+                                }.frame(width: 398, height: 398)
+                                    .clipShape(RoundedRectangle(cornerRadius: 30))
+                                )
+                                .foregroundStyle(.white)
+                            
                             Spacer()
                             
                         }
@@ -73,7 +80,7 @@ struct RandomRecipeView: View {
                                 .padding(.bottom, 30)
                                 .background(Color("FAFAFAColor"))
                                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 30, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 30, style: .continuous))
-                            
+                                
                             }
                             
                             //.offset(x:0, y: 250)
@@ -83,73 +90,73 @@ struct RandomRecipeView: View {
                 }
             }
         }
-            .navigationTitle("Recipe Details")
-            .navigationBarTitleDisplayMode(.inline)
-            .toolbar {
-                Button(action: {
-                    if isSaved {
-                        // Remove a receita do armazenamento se já estiver salva
-                        removeItem(recipeId: randomRecipeModel.recipesArray[0].idMeal)
-                        isSaved = false
-                    } else {
-                        // Adiciona a receita ao armazenamento
-                        addItem(recipeToAdd: Recipe(
-                            idMeal: randomRecipeModel.recipesArray[0].idMeal,
-                            strMeal: randomRecipeModel.recipesArray[0].strMeal,
-                            strCategory: randomRecipeModel.recipesArray[0].strCategory,
-                            strArea: randomRecipeModel.recipesArray[0].strArea,
-                            strInstructions: randomRecipeModel.recipesArray[0].strInstructions,
-                            strMealThumb: randomRecipeModel.recipesArray[0].strMealThumb,
-                            
-                            
-                            strIngredient1: randomRecipeModel.recipesArray[0].strIngredient1,
-                                strIngredient2: randomRecipeModel.recipesArray[0].strIngredient2,
-                                strIngredient3: randomRecipeModel.recipesArray[0].strIngredient3,
-                                strIngredient4: randomRecipeModel.recipesArray[0].strIngredient4,
-                                strIngredient5: randomRecipeModel.recipesArray[0].strIngredient5,
-                                strIngredient6: randomRecipeModel.recipesArray[0].strIngredient6,
-                                strIngredient7: randomRecipeModel.recipesArray[0].strIngredient7,
-                                strIngredient8: randomRecipeModel.recipesArray[0].strIngredient8,
-                                strIngredient9: randomRecipeModel.recipesArray[0].strIngredient9,
-                                strIngredient10: randomRecipeModel.recipesArray[0].strIngredient10,
-                                strIngredient11: randomRecipeModel.recipesArray[0].strIngredient11,
-                                strIngredient12: randomRecipeModel.recipesArray[0].strIngredient12,
-                                strIngredient13: randomRecipeModel.recipesArray[0].strIngredient13,
-                                strIngredient14: randomRecipeModel.recipesArray[0].strIngredient14,
-                                strIngredient15: randomRecipeModel.recipesArray[0].strIngredient15,
-                                strIngredient16: randomRecipeModel.recipesArray[0].strIngredient16,
-                                strIngredient17: randomRecipeModel.recipesArray[0].strIngredient17,
-                                strIngredient18: randomRecipeModel.recipesArray[0].strIngredient18,
-                                strIngredient19: randomRecipeModel.recipesArray[0].strIngredient19,
-                                strIngredient20: randomRecipeModel.recipesArray[0].strIngredient20,
-                                strMeasure1: randomRecipeModel.recipesArray[0].strMeasure1,
-                                strMeasure2: randomRecipeModel.recipesArray[0].strMeasure2,
-                                strMeasure3: randomRecipeModel.recipesArray[0].strMeasure3,
-                                strMeasure4: randomRecipeModel.recipesArray[0].strMeasure4,
-                                strMeasure5: randomRecipeModel.recipesArray[0].strMeasure5,
-                                strMeasure6: randomRecipeModel.recipesArray[0].strMeasure6,
-                                strMeasure7: randomRecipeModel.recipesArray[0].strMeasure7,
-                                strMeasure8: randomRecipeModel.recipesArray[0].strMeasure8,
-                                strMeasure9: randomRecipeModel.recipesArray[0].strMeasure9,
-                                strMeasure10: randomRecipeModel.recipesArray[0].strMeasure10,
-                                strMeasure11: randomRecipeModel.recipesArray[0].strMeasure11,
-                                strMeasure12: randomRecipeModel.recipesArray[0].strMeasure12,
-                                strMeasure13: randomRecipeModel.recipesArray[0].strMeasure13,
-                                strMeasure14: randomRecipeModel.recipesArray[0].strMeasure14,
-                                strMeasure15: randomRecipeModel.recipesArray[0].strMeasure15,
-                                strMeasure16: randomRecipeModel.recipesArray[0].strMeasure16,
-                                strMeasure17: randomRecipeModel.recipesArray[0].strMeasure17,
-                                strMeasure18: randomRecipeModel.recipesArray[0].strMeasure18,
-                                strMeasure19: randomRecipeModel.recipesArray[0].strMeasure19,
-                                strMeasure20: randomRecipeModel.recipesArray[0].strMeasure20))
-
-                            
-                        isSaved = true
-                    }
-                }, label: {
-                    Image(isSaved ? "favorite.fill" : "favorite")
-                })
-            }
+        .navigationTitle("Recipe Details")
+        .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            Button(action: {
+                if isSaved {
+                    // Remove a receita do armazenamento se já estiver salva
+                    removeItem(recipeId: randomRecipeModel.recipesArray[0].idMeal)
+                    isSaved = false
+                } else {
+                    // Adiciona a receita ao armazenamento
+                    addItem(recipeToAdd: Recipe(
+                        idMeal: randomRecipeModel.recipesArray[0].idMeal,
+                        strMeal: randomRecipeModel.recipesArray[0].strMeal,
+                        strCategory: randomRecipeModel.recipesArray[0].strCategory,
+                        strArea: randomRecipeModel.recipesArray[0].strArea,
+                        strInstructions: randomRecipeModel.recipesArray[0].strInstructions,
+                        strMealThumb: randomRecipeModel.recipesArray[0].strMealThumb,
+                        
+                        
+                        strIngredient1: randomRecipeModel.recipesArray[0].strIngredient1,
+                        strIngredient2: randomRecipeModel.recipesArray[0].strIngredient2,
+                        strIngredient3: randomRecipeModel.recipesArray[0].strIngredient3,
+                        strIngredient4: randomRecipeModel.recipesArray[0].strIngredient4,
+                        strIngredient5: randomRecipeModel.recipesArray[0].strIngredient5,
+                        strIngredient6: randomRecipeModel.recipesArray[0].strIngredient6,
+                        strIngredient7: randomRecipeModel.recipesArray[0].strIngredient7,
+                        strIngredient8: randomRecipeModel.recipesArray[0].strIngredient8,
+                        strIngredient9: randomRecipeModel.recipesArray[0].strIngredient9,
+                        strIngredient10: randomRecipeModel.recipesArray[0].strIngredient10,
+                        strIngredient11: randomRecipeModel.recipesArray[0].strIngredient11,
+                        strIngredient12: randomRecipeModel.recipesArray[0].strIngredient12,
+                        strIngredient13: randomRecipeModel.recipesArray[0].strIngredient13,
+                        strIngredient14: randomRecipeModel.recipesArray[0].strIngredient14,
+                        strIngredient15: randomRecipeModel.recipesArray[0].strIngredient15,
+                        strIngredient16: randomRecipeModel.recipesArray[0].strIngredient16,
+                        strIngredient17: randomRecipeModel.recipesArray[0].strIngredient17,
+                        strIngredient18: randomRecipeModel.recipesArray[0].strIngredient18,
+                        strIngredient19: randomRecipeModel.recipesArray[0].strIngredient19,
+                        strIngredient20: randomRecipeModel.recipesArray[0].strIngredient20,
+                        strMeasure1: randomRecipeModel.recipesArray[0].strMeasure1,
+                        strMeasure2: randomRecipeModel.recipesArray[0].strMeasure2,
+                        strMeasure3: randomRecipeModel.recipesArray[0].strMeasure3,
+                        strMeasure4: randomRecipeModel.recipesArray[0].strMeasure4,
+                        strMeasure5: randomRecipeModel.recipesArray[0].strMeasure5,
+                        strMeasure6: randomRecipeModel.recipesArray[0].strMeasure6,
+                        strMeasure7: randomRecipeModel.recipesArray[0].strMeasure7,
+                        strMeasure8: randomRecipeModel.recipesArray[0].strMeasure8,
+                        strMeasure9: randomRecipeModel.recipesArray[0].strMeasure9,
+                        strMeasure10: randomRecipeModel.recipesArray[0].strMeasure10,
+                        strMeasure11: randomRecipeModel.recipesArray[0].strMeasure11,
+                        strMeasure12: randomRecipeModel.recipesArray[0].strMeasure12,
+                        strMeasure13: randomRecipeModel.recipesArray[0].strMeasure13,
+                        strMeasure14: randomRecipeModel.recipesArray[0].strMeasure14,
+                        strMeasure15: randomRecipeModel.recipesArray[0].strMeasure15,
+                        strMeasure16: randomRecipeModel.recipesArray[0].strMeasure16,
+                        strMeasure17: randomRecipeModel.recipesArray[0].strMeasure17,
+                        strMeasure18: randomRecipeModel.recipesArray[0].strMeasure18,
+                        strMeasure19: randomRecipeModel.recipesArray[0].strMeasure19,
+                        strMeasure20: randomRecipeModel.recipesArray[0].strMeasure20))
+                    
+                    
+                    isSaved = true
+                }
+            }, label: {
+                Image(isSaved ? "bookmark.fill" : "bookmark")
+            })
+        }
         .onAppear {
             randomRecipeModel.fetchRandom()
         }

@@ -18,9 +18,10 @@ struct CountryAndFlag: View {
             Image(country)
                 .resizable()
                 .scaledToFill()
-                .frame(width: 25, height: 25)
-                .padding(5)
-                .shadow(radius: 0.5)
+                .frame(width: 34, height: 22)
+                .clipShape(RoundedRectangle(cornerRadius: 3))
+                .shadow(radius: 0.3)
+
         }
     }
 }

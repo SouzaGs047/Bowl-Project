@@ -19,24 +19,34 @@ struct SplashScreenView: View {
             ContentView()
         } else {
             
-            VStack {
+            ZStack {
+                Image("splashImage")
+                    .resizable()
+                    .scaledToFill()
+                    .frame(minWidth: 0)
+                    .edgesIgnoringSafeArea(.all)
+                
+                
+                
                 VStack {
-                    Image("bowl")
-                        .resizable()
-                        .scaledToFit()
-                        .frame(width: 180)
+                    Spacer()
                     
+                    Image("bowlLogo")
+                        .resizable()
+                        .frame(width: 221.18, height: 122.72)
+                        .scaledToFit()
                 }
+                .padding(.bottom, 87.14)
+                
                 .scaleEffect(size)
                 .opacity(opacity)
                 .onAppear {
-                    withAnimation(.easeIn(duration: 1.2)) {
+                    withAnimation(.smooth(duration: 1.2)) {
                         self.size = 0.9
                         self.opacity = 1
                     }
                 }
-            }
-            .onAppear {
+            }.onAppear {
                 DispatchQueue.main.asyncAfter(deadline: .now() + 2.0) {
                     self.isActive = true
                 }

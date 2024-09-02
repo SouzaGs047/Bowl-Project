@@ -25,8 +25,7 @@ struct CategoryFeedView: View {
             }
         }
         .navigationTitle(category.strCategory)
-        .navigationBarTitleDisplayMode(.large)
-
+        .navigationBarTitleDisplayMode(.inline)
     }
 }
 

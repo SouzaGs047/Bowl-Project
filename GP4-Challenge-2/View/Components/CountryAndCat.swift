@@ -12,7 +12,7 @@ struct CountryAndCat: View {
     let category: String
     
     var body: some View {
-        HStack(spacing: 30){
+        HStack{
 
             Text(category)
                 .foregroundStyle(.FAFAFA)

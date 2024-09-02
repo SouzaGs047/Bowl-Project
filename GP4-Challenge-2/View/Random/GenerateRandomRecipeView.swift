@@ -35,7 +35,7 @@ struct GenerateRandomRecipeView: View {
                 
                 Spacer()
             }.navigationTitle("Random Recipe")
-       
+            .navigationBarTitleDisplayMode(.inline)
     }
 }
 

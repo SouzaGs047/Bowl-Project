@@ -26,7 +26,7 @@ struct CountryFeedView: View {
             }
         }
         .navigationTitle(country.strArea)
-        .navigationBarTitleDisplayMode(.large)
+        .navigationBarTitleDisplayMode(.inline)
         }
     }
 
