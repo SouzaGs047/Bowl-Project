@@ -43,6 +43,7 @@ struct RecipeByIDView: View {
                                         .fontWeight(.semibold)
                                     
                                     CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
+                                        .padding(.top, -11)
                                     VStack (alignment: .leading){
                                         Text("Ingredients")
                                             .font(.title3)
@@ -154,7 +155,10 @@ struct RecipeByIDView: View {
                 }
             }, label: {
                 Image(isSaved ? "bookmark.fill" : "bookmark")
-            })
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    
+            }).frame(width: 70, height: 50)
         }
         .onAppear {
             recipeModel.fetchByID(id: recipeID)

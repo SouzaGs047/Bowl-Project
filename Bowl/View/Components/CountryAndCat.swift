@@ -10,12 +10,13 @@ struct CountryAndCat: View {
             Text(category)
                 .foregroundStyle(.FAFAFA)
                 .fontWeight(.semibold)
-                .padding(.horizontal, 12)
+                .padding(.horizontal, 8)
                 .background(RoundedRectangle(cornerRadius: 50).fill(Color("aquaBaseColor")))
+                .font(.footnote)
                 
             Spacer()
             CountryAndFlag(country: country)
-
+                .font(.footnote)
         }
     }
 }

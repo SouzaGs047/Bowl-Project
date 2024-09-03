@@ -40,6 +40,7 @@ struct RandomRecipeView: View {
                                         .fontWeight(.semibold)
                                     
                                     CountryAndCat(country: recipe.strArea, category: recipe.strCategory)
+                                        .padding(.top, -11)
                                     VStack (alignment: .leading){
                                         Text("Ingredients")
                                             .font(.title3)
@@ -82,8 +83,6 @@ struct RandomRecipeView: View {
                                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 30, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 30, style: .continuous))
                                 
                             }
-                            
-                            //.offset(x:0, y: 250)
                             
                         }
                     }
@@ -155,7 +154,10 @@ struct RandomRecipeView: View {
                 }
             }, label: {
                 Image(isSaved ? "bookmark.fill" : "bookmark")
-            })
+                    .resizable()
+                    .frame(width: 25, height: 25)
+                    
+            }).frame(width: 70, height: 50)
         }
         .onAppear {
             randomRecipeModel.fetchRandom()
