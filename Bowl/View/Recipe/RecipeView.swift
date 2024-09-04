@@ -11,21 +11,21 @@ struct RecipeView: View {
     var body: some View {
         VStack{
             ZStack{
-                VStack{
-                    Rectangle()
-                    
-                        .frame(width: 398, height: 398)
-                        .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                .resizable()
-                                .aspectRatio(contentMode: .fit)
-                                .offset(y: -50)
-                        }.frame(width: 398, height: 398)
-                            .clipShape(RoundedRectangle(cornerRadius: 30))
-                        )
-                        .foregroundStyle(.white)
-                    
-                    Spacer()
-                    
+                GeometryReader { geometry in
+                    VStack {
+                        Rectangle()
+                            .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
+                            .border(Color.black, width: 2)
+                            .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                    .resizable()
+                                    .aspectRatio(contentMode: .fill)
+                                    .offset(y: -50)
+                            }
+                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                            )
+                            .foregroundStyle(Color("backImageColor"))
+                            .padding(.top, 30)
+                    }
                 }
                 ScrollView {
                     VStack{
@@ -44,6 +44,7 @@ struct RecipeView: View {
                                 Text("Ingredients")
                                     .font(.title3)
                                     .fontWeight(.semibold)
+                                    .foregroundStyle(Color("darkGreyBaseColor"))
                                 Ingredients(measure: recipe.strMeasure1, ingredient: recipe.strIngredient1)
                                 Ingredients(measure: recipe.strMeasure2, ingredient: recipe.strIngredient2)
                                 Ingredients(measure: recipe.strMeasure3, ingredient: recipe.strIngredient3)
@@ -72,6 +73,7 @@ struct RecipeView: View {
                                     .font(.title3)
                                     .fontWeight(.semibold)
                                     .padding(.bottom, 7)
+                                    .foregroundStyle(Color.darkGreyBase)
                                 Text(recipe.strInstructions)
                             }
                             .foregroundStyle(Color.greyBase)
@@ -83,6 +85,7 @@ struct RecipeView: View {
                         
                     }
                 }
+                .scrollIndicators(.hidden)
             }
         } .navigationTitle("Recipe Details")
             .navigationBarTitleDisplayMode(.inline)

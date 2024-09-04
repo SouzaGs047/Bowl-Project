@@ -15,22 +15,23 @@ struct RecipeByIDView: View {
             ForEach(recipeModel.recipesArray, id: \.idMeal) { recipe in
                 VStack{
                     ZStack{
-                        VStack{
-                            Rectangle()
-                            
-                                .frame(width: 398, height: 398)
-                                .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                        .resizable()
-                                        .aspectRatio(contentMode: .fit)
-                                        .offset(y: -50)
-                                }.frame(width: 398, height: 398)
-                                    .clipShape(RoundedRectangle(cornerRadius: 30))
-                                )
-                                .foregroundStyle(.white)
-                            
-                            Spacer()
-                            
+                        GeometryReader { geometry in
+                            VStack {
+                                Rectangle()
+                                    .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
+                                    .border(Color.black, width: 2)
+                                    .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
+                                            .resizable()
+                                            .aspectRatio(contentMode: .fill)
+                                            .offset(y: -50)
+                                    }
+                                        .clipShape(RoundedRectangle(cornerRadius: 30))
+                                    )
+                                    .foregroundStyle(Color("backImageColor"))
+                                    .padding(.top, 30)
+                            }
                         }
+                        
                         ScrollView {
                             VStack{
                                 Spacer()
@@ -86,6 +87,7 @@ struct RecipeByIDView: View {
                                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 30, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 30, style: .continuous))
                             }
                         }
+                        .scrollIndicators(.hidden)
                     }
                     
                 }
@@ -157,7 +159,7 @@ struct RecipeByIDView: View {
                 Image(isSaved ? "bookmark.fill" : "bookmark")
                     .resizable()
                     .frame(width: 25, height: 25)
-                    
+                
             }).frame(width: 70, height: 50)
         }
         .onAppear {

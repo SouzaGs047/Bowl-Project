@@ -21,9 +21,9 @@ struct Card: View {
                     Spacer()
                     Text(recipe.strMeal)
                         .font(.subheadline)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.darkGreyBase)
                         .font(.headline)
-                        .bold()
+                        .fontWeight(/*@START_MENU_TOKEN@*/.bold/*@END_MENU_TOKEN@*/)
                     Spacer()
                     HStack {
                         Image(recipe.strArea)

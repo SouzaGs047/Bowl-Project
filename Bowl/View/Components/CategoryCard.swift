@@ -18,7 +18,7 @@ struct CategoryCard: View {
                 VStack(alignment: .leading) {
                     Text(recipe.strMeal)
                         .font(.subheadline)
-                        .foregroundStyle(.black)
+                        .foregroundStyle(.darkGreyBase)
                         .font(.headline)
                         .bold()
                         .padding(.trailing)

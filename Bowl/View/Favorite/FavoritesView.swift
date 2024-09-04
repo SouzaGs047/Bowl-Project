@@ -73,7 +73,7 @@ struct FavoritesView: View {
                                     Text(recipe.strMeal)
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
-                                        .foregroundStyle(.black)
+                                        .foregroundStyle(.darkGreyBase)
                                     Text(recipe.strCategory)
                                         .font(.caption)
                                     HStack {

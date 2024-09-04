@@ -13,8 +13,6 @@ struct CategoryFeedView: View {
                     NavigationLink(destination: RecipeByIDView(recipeID: recipe.idMeal)) {
                         CategoryCard(recipe: recipe)
                     }.buttonStyle(PlainButtonStyle())
-                        .padding(.horizontal)
-                        .frame(height: 150)
                         .padding(.vertical,7)
                         .padding(.horizontal, 5)
                 }
@@ -22,7 +20,7 @@ struct CategoryFeedView: View {
                 .onAppear {
                     countryRecipeModel.fetchByCategory(categoryName: category.strCategory)
                 }
-            }
+            }.padding(.top,15)
         }
         .navigationTitle(category.strCategory)
         .navigationBarTitleDisplayMode(.inline)
