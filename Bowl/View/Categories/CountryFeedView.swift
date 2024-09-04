@@ -12,23 +12,20 @@ struct CountryFeedView: View {
                     
                     NavigationLink(destination: RecipeByIDView(recipeID: recipe.idMeal)) {
                         CategoryCard(recipe: recipe)
+                    }.buttonStyle(PlainButtonStyle())
+                        .padding(.vertical,7)
+                        .padding(.horizontal, 5)
                 }
-                    .buttonStyle(PlainButtonStyle())
-                    .frame(height: 150)
-                    .padding(.vertical,7)
-                    .padding(.horizontal, 5)
-                    
-                    
+                .navigationTitle(country.strArea)
+                .onAppear {
+                    countryRecipeModel.fetchByCountry(countryName: country.strArea)
                 }
-            .onAppear {
-                countryRecipeModel.fetchByCountry(countryName: country.strArea)
-            }
             }
         }
         .navigationTitle(country.strArea)
         .navigationBarTitleDisplayMode(.inline)
-        }
     }
+}
 
 
 #Preview {

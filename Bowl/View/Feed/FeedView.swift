@@ -3,11 +3,13 @@ import SwiftData
 
 struct FeedView: View {
     @Environment(\.modelContext) private var modelContext
-
+    
     @StateObject var recipeModel = RecipeModel()
     @Query private var items: [RecipeStorage]
-
+    
     @State private var searchTerm = ""
+    @State var hasFetched = false
+    
     
     var body: some View {
         VStack {
@@ -27,15 +29,19 @@ struct FeedView: View {
                 }
                 .searchable(text: $searchTerm, prompt: "Search recipes")
                 .onAppear(){
-                    if(searchTerm.isEmpty){
+                    if(searchTerm.isEmpty && !hasFetched){
                         let randomLetter: String = randomChar()
                         recipeModel.fetchBySearch(nameRecipe: randomLetter)
+                        
+                        hasFetched = true
                     }
                 }
                 .onChange(of: searchTerm) { _ in
-                    if(searchTerm.isEmpty){
+                    if(searchTerm.isEmpty  && !hasFetched){
                         let randomLetter: String = randomChar()
                         recipeModel.fetchBySearch(nameRecipe: randomLetter)
+                        
+                        hasFetched = true
                     } else {
                         recipeModel.fetchBySearch(nameRecipe: searchTerm)
                     }

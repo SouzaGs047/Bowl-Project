@@ -6,6 +6,7 @@ struct RandomRecipeView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [RecipeStorage]
     @State var isSaved = false
+    @State var hasFetched = false
     
     var body: some View {
         VStack {
@@ -161,7 +162,10 @@ struct RandomRecipeView: View {
             }).frame(width: 70, height: 50)
         }
         .onAppear {
-            randomRecipeModel.fetchRandom()
+            if (!hasFetched) {
+                randomRecipeModel.fetchRandom()
+                hasFetched = true
+            }
         }
     }
     

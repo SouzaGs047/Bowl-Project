@@ -39,7 +39,7 @@ struct Card: View {
                             .font(.caption2)
                             .padding(.horizontal,5)
                             .background(RoundedRectangle(cornerRadius: 25.0).fill(Color("aquaBaseColor")))
-                            .foregroundColor(.white)
+                            .foregroundColor(.FAFAFA)
                             .fontWeight(.semibold)
                             
                             

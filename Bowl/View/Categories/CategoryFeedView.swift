@@ -20,7 +20,7 @@ struct CategoryFeedView: View {
                 .onAppear {
                     countryRecipeModel.fetchByCategory(categoryName: category.strCategory)
                 }
-            }.padding(.top,15)
+            }
         }
         .navigationTitle(category.strCategory)
         .navigationBarTitleDisplayMode(.inline)

@@ -67,21 +67,34 @@ struct FavoritesView: View {
                                 AsyncImage(url: recipe.strMealThumb){result in result.image?
                                         .resizable()
                                         .scaledToFill()
-                                }.frame(width: 150,height: 150)
+                                }.frame(width: 140,height: 140)
                                     .clipShape(RoundedRectangle(cornerRadius: 15.0))
                                 VStack(alignment: .leading) {
                                     Text(recipe.strMeal)
                                         .font(.subheadline)
                                         .fontWeight(.semibold)
                                         .foregroundStyle(.darkGreyBase)
+                                        .padding(.bottom, 5)
+                                    
+
+                                    
                                     Text(recipe.strCategory)
-                                        .font(.caption)
+                                        .font(.caption2)
+                                        .padding(.horizontal,5)
+                                        .background(RoundedRectangle(cornerRadius: 25.0).fill(Color("aquaBaseColor")))
+                                        .foregroundColor(.FAFAFA)
+                                        .fontWeight(.semibold)
+                                    
                                     HStack {
                                         Image(recipe.strArea)
                                             .resizable()
-                                            .frame(width: 45,height: 30)
+                                            .frame(width: 34,height: 22)
+                                            .clipShape(RoundedRectangle(cornerRadius: 3))
+                                            .shadow(radius: 0.5)
+                                        
                                         Text(recipe.strArea)
-                                            .font(.caption)
+                                            .font(.caption2)
+                                            .shadow(radius: 0.5)
                                     }
                                 }
                             }
