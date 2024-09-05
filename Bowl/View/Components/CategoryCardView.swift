@@ -10,11 +10,14 @@ struct CategoryCardView: View {
                 .shadow(color: .black.opacity(0.03), radius: 3, x: 0, y: 5)
                 .shadow(radius: 0.5)
             HStack {
-                AsyncImage(url: category.strCategoryThumb){result in result.image?
-                        .resizable()
+                AsyncImage(url: category.strCategoryThumb){result in
+                    result.resizable()
                         .aspectRatio(contentMode: category.strCategory == "Goat" || category.strCategory == "Breakfast" ? .fill : .fit)
                    
-                }.frame(width: 150, height: 150)
+                } placeholder: {
+                    ProgressView().progressViewStyle(.circular)
+                }
+                .frame(width: 150, height: 150)
                     .background(Color.white)
                     .clipShape(RoundedRectangle(cornerRadius: 25.0))
                     .scaledToFill()

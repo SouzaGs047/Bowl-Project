@@ -16,12 +16,17 @@ struct RecipeView: View {
                         Rectangle()
                             .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
                             .border(Color.black, width: 2)
-                            .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                    .resizable()
-                                    .aspectRatio(contentMode: .fill)
-                                    .offset(y: -50)
-                            }
-                                .clipShape(RoundedRectangle(cornerRadius: 30))
+                            .overlay(
+                                AsyncImage(url: recipe.strMealThumb){result in
+                                    result.resizable()
+                                        .aspectRatio(contentMode: .fill)
+                                        .offset(y: -50)
+                                } placeholder: {
+                                    ProgressView().progressViewStyle(.circular)
+                                }
+                                
+                                
+                                    .clipShape(RoundedRectangle(cornerRadius: 30))
                             )
                             .foregroundStyle(Color("backImageColor"))
                             .padding(.top, 30)
@@ -102,11 +107,11 @@ struct RecipeView: View {
                     Image(isSaved ? "bookmark.fill" : "bookmark")
                         .resizable()
                         .frame(width: 25, height: 25)
-                        
+                    
                 }).frame(width: 70, height: 50)
-                .onAppear {
-                    isSaved = isRecipeSaved()
-                }
+                    .onAppear {
+                        isSaved = isRecipeSaved()
+                    }
             }
     }
     

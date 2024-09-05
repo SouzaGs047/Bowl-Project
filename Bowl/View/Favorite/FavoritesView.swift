@@ -64,10 +64,13 @@ struct FavoritesView: View {
                         
                         VStack(alignment: .leading) {
                             HStack {
-                                AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                        .resizable()
+                                AsyncImage(url: recipe.strMealThumb){result in
+                                        result.resizable()
                                         .scaledToFill()
-                                }.frame(width: 140,height: 140)
+                                } placeholder: {
+                                    ProgressView().progressViewStyle(.circular)
+                                }
+                                .frame(width: 140,height: 140)
                                     .clipShape(RoundedRectangle(cornerRadius: 15.0))
                                 VStack(alignment: .leading) {
                                     Text(recipe.strMeal)

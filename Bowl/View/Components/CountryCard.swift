@@ -11,6 +11,7 @@ struct CountryCard: View {
                     .scaledToFill()
                     .clipShape(RoundedRectangle(cornerRadius: 15.0))
                     .shadow(radius: 0.3)
+            
                 Text(country)
                     .fontWeight(.semibold)
                     .foregroundColor(Color("darkGreyBaseColor"))

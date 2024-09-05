@@ -18,11 +18,14 @@ struct RandomRecipeView: View {
                                 Rectangle()
                                     .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
                                     .border(Color.black, width: 2)
-                                    .overlay(AsyncImage(url: recipe.strMealThumb){result in result.image?
-                                            .resizable()
+                                    .overlay(
+                                        AsyncImage(url: recipe.strMealThumb){result in
+                                            result.resizable()
                                             .aspectRatio(contentMode: .fill)
-                                            .offset(y: -50)
-                                    }
+                                                .offset(y: -50)
+                                        } placeholder: {
+                                            ProgressView().progressViewStyle(.circular)
+                                        }
                                         .clipShape(RoundedRectangle(cornerRadius: 30))
                                     )
                                     .foregroundStyle(Color("backImageColor"))
