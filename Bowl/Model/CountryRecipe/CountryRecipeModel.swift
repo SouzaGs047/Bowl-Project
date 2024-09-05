@@ -14,7 +14,6 @@ class CountryRecipeModel: ObservableObject {
                 return
             }
             
-            // Decode JSON response
             do {
                 let countryRecipeResponse = try JSONDecoder().decode(CountryRecipeResponse.self, from: data)
                 DispatchQueue.main.async {
@@ -37,7 +36,6 @@ class CountryRecipeModel: ObservableObject {
                 return
             }
             
-            // Decode JSON response
             do {
                 let countryRecipeResponse = try JSONDecoder().decode(CountryRecipeResponse.self, from: data)
                 DispatchQueue.main.async {

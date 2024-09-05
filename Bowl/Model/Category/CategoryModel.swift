@@ -13,7 +13,6 @@ class CategoryModel: ObservableObject {
                 return
             }
             
-            // Decode JSON response
             do {
                 let categoryResponse = try JSONDecoder().decode(CategoryResponse.self, from: data)
                 DispatchQueue.main.async {

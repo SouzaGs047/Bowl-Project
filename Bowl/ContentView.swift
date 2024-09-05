@@ -1,10 +1,3 @@
-//
-//  ContentView.swift
-//  GP4-Challenge-2
-//
-//  Created by GUSTAVO SOUZA SANTANA on 27/08/24.
-//
-
 import SwiftUI
 import SwiftData
 import UIKit
