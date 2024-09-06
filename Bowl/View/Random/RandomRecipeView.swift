@@ -17,7 +17,6 @@ struct RandomRecipeView: View {
                             VStack {
                                 Rectangle()
                                     .frame(width: geometry.size.width, height: geometry.size.height * 0.5)
-                                    .border(Color.black, width: 2)
                                     .overlay(
                                         AsyncImage(url: recipe.strMealThumb){result in
                                             result.resizable()
