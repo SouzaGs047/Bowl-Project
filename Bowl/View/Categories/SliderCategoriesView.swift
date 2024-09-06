@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import SwiftUI
 
 struct SliderCategoriesView: View {
@@ -21,7 +27,7 @@ struct SliderCategoriesView: View {
                         .fontWeight(.semibold)
                         .foregroundColor(selectedTab == 1 ? Color("redBaseColor") : Color("greyBaseColor"))
                         .overlay (
-
+                            
                             RoundedRectangle(cornerRadius: 2)
                                 .frame(width: selectedTab == 1 ? 115 : 0, height: selectedTab == 1 ? 3 : 0)
                                 .offset(x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/15.0/*@END_MENU_TOKEN@*/)

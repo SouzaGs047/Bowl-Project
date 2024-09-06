@@ -1,5 +1,10 @@
-import Foundation
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
 
+import Foundation
 
 struct Recipe: Hashable, Codable {
     let idMeal: String
@@ -57,7 +62,7 @@ func randomChar() -> String {
                    "k", "l", "m", "n", "o", "p", "q", "r", "s", "t",
                    "u", "v", "w", "x", "y", "z"];
     let randomIndex = Int.random(in: 0..<letters.count);
-
+    
     return letters[randomIndex]
 }
 

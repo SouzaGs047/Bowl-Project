@@ -1,3 +1,8 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
 
 import SwiftUI
 import Foundation
@@ -11,11 +16,11 @@ struct Ingredients: View {
         
         if (measure?.count == 1 && ingredient ?? "" != ""){
             
-           Text("• \(measure ?? "") \(ingredient ?? "");")
+            Text("• \(measure ?? "") \(ingredient ?? "");")
             
-       } else if (ingredient ?? "" != "") {
-                Text("• \(measure ?? "") of \(ingredient ?? "");")
-            }
+        } else if (ingredient ?? "" != "") {
+            Text("• \(measure ?? "") of \(ingredient ?? "");")
+        }
     }
 }
 

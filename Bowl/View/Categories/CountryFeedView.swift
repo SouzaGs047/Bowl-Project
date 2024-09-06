@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import SwiftUI
 
 struct CountryFeedView: View {
@@ -10,7 +16,7 @@ struct CountryFeedView: View {
             ScrollView {
                 ForEach(countryRecipeModel.countryRecipesArray, id: \.idMeal) { recipe in
                     
-                    NavigationLink(destination: RecipeByIDView(recipeID: recipe.idMeal)) {
+                    NavigationLink(destination: RecipeRequestView(recipeID: recipe.idMeal, pageType: "By ID")) {
                         CategoryCard(recipe: recipe)
                     }.buttonStyle(PlainButtonStyle())
                         .padding(.vertical,7)

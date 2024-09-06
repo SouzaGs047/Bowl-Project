@@ -1,8 +1,14 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import Foundation
 
 class CountryModel: ObservableObject {
     @Published var countriesArray: [Country] = []
-        
+    
     func fetch() {
         guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/list.php?a=list") else {
             return
@@ -24,5 +30,5 @@ class CountryModel: ObservableObject {
         }
         task.resume()
     }
-
+    
 }

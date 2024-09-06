@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import SwiftUI
 
 struct Card: View {
@@ -11,7 +17,7 @@ struct Card: View {
                 .shadow(radius: 0.5)
             HStack {
                 AsyncImage(url: recipe.strMealThumb){result in
-                        result.resizable()
+                    result.resizable()
                         .scaledToFill()
                         .clipShape(RoundedRectangle(cornerRadius: 15.0))
                         .shadow(radius: 0.3)
@@ -21,7 +27,7 @@ struct Card: View {
                 
                 
                 .frame(width: 150,height: 150)
-                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                .clipShape(RoundedRectangle(cornerRadius: 15.0))
                 VStack(alignment: .leading) {
                     Spacer()
                     Text(recipe.strMeal)
@@ -46,8 +52,8 @@ struct Card: View {
                             .background(RoundedRectangle(cornerRadius: 25.0).fill(Color("aquaBaseColor")))
                             .foregroundColor(.FAFAFA)
                             .fontWeight(.semibold)
-                            
-                            
+                        
+                        
                     }.padding(.vertical)
                         .padding(.trailing)
                 }
