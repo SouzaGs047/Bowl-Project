@@ -7,8 +7,6 @@ José Elias */
 import SwiftUI
 
 struct GenerateRandomRecipeView: View {
-    @EnvironmentObject var tabSelection: TabSelection
-
     var body: some View {
         VStack{
             
