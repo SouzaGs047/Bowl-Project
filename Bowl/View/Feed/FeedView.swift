@@ -15,7 +15,7 @@ struct FeedView: View {
     
     @State private var searchTerm = ""
     @State var hasFetched = false
-    
+    @State var randomLetter = "a"
     
     var body: some View {
         VStack {
@@ -36,18 +36,14 @@ struct FeedView: View {
                 .searchable(text: $searchTerm, prompt: "Search recipes")
                 .onAppear(){
                     if(searchTerm.isEmpty && !hasFetched){
-                        let randomLetter: String = randomChar()
                         recipeModel.fetchBySearch(nameRecipe: randomLetter)
                         
                         hasFetched = true
                     }
                 }
                 .onChange(of: searchTerm) { _ in
-                    if(searchTerm.isEmpty  && !hasFetched){
-                        let randomLetter: String = randomChar()
+                    if(searchTerm.isEmpty){
                         recipeModel.fetchBySearch(nameRecipe: randomLetter)
-                        
-                        hasFetched = true
                     } else {
                         recipeModel.fetchBySearch(nameRecipe: searchTerm)
                     }
