@@ -15,7 +15,7 @@ struct FeedView: View {
     
     @State private var searchTerm = ""
     @State var hasFetched = false
-    @State var randomLetter = "a"
+    @State var randomLetter = randomChar()
     
     var body: some View {
         VStack {
