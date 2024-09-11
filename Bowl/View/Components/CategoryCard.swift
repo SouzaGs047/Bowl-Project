@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import SwiftUI
 
 struct CategoryCard: View {
@@ -11,13 +17,13 @@ struct CategoryCard: View {
                 .shadow(radius: 0.5)
             HStack {
                 AsyncImage(url: recipe.strMealThumb){result in
-                        result.resizable()
+                    result.resizable()
                         .scaledToFill()
                 } placeholder: {
                     ProgressView().progressViewStyle(.circular)
                 }
                 .frame(width: 150,height: 150)
-                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                .clipShape(RoundedRectangle(cornerRadius: 15.0))
                 VStack(alignment: .leading) {
                     Text(recipe.strMeal)
                         .font(.subheadline)
@@ -28,9 +34,9 @@ struct CategoryCard: View {
                 }
             }
         }
-            .padding()
-            .frame(height: 150)
+        .padding()
+        .frame(height: 150)
     }
-        
+    
     
 }

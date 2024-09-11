@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+Amanda Caroline
+Giulia Cacciaguerra
+Gustavo Souza
+José Elias */
+ 
 import SwiftUI
 import SwiftData
 import UIKit
@@ -23,7 +29,7 @@ struct ContentView: View {
             NavigationStack {
                 SliderCategoriesView()
                     .navigationBarHidden(true)
-
+                
             }
             .tabItem() {
                 Image(selectedTab == 2 ? "category.fill" : "category")
@@ -53,10 +59,10 @@ struct ContentView: View {
         .tint(.redBase)
         .onAppear(){
             let appearance = UITabBarAppearance()
-                        appearance.backgroundColor = UIColor.FAFAFA
-                        
-                        UITabBar.appearance().standardAppearance = appearance
-                        UITabBar.appearance().scrollEdgeAppearance = appearance
+            appearance.backgroundColor = UIColor.FAFAFA
+            
+            UITabBar.appearance().standardAppearance = appearance
+            UITabBar.appearance().scrollEdgeAppearance = appearance
         }
         
     }

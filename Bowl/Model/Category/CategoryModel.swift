@@ -1,8 +1,14 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import Foundation
 
 class CategoryModel: ObservableObject {
     @Published var categoriesArray: [Category] = []
-        
+    
     func fetch() {
         guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/categories.php") else {
             return
@@ -24,5 +30,5 @@ class CategoryModel: ObservableObject {
         }
         task.resume()
     }
-
+    
 }

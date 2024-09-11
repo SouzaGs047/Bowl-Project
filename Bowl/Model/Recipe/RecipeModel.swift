@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+Amanda Caroline
+Giulia Cacciaguerra
+Gustavo Souza
+José Elias */
+ 
 import Foundation
 
 class RecipeModel: ObservableObject {
@@ -48,8 +54,8 @@ class RecipeModel: ObservableObject {
         }
         task.resume()
     }
-
-        
+    
+    
     func fetchRandom() {
         guard let url = URL(string: "https://www.themealdb.com/api/json/v1/1/random.php") else {
             return
@@ -72,5 +78,5 @@ class RecipeModel: ObservableObject {
         }
         task.resume()
     }
-
+    
 }

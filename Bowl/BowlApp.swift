@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import SwiftUI
 import SwiftData
 
@@ -8,7 +14,7 @@ struct BowlApp: App {
             RecipeStorage.self,
         ])
         let modelConfiguration = ModelConfiguration(schema: schema, isStoredInMemoryOnly: false)
-
+        
         do {
             return try ModelContainer(for: schema, configurations: [modelConfiguration])
         } catch {
@@ -21,7 +27,7 @@ struct BowlApp: App {
             SplashScreenView()
         }
         .modelContainer(sharedModelContainer)
-
-
+        
+        
     }
 }

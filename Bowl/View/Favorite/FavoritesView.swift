@@ -1,3 +1,9 @@
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
+
 import SwiftUI
 import SwiftData
 
@@ -65,13 +71,13 @@ struct FavoritesView: View {
                         VStack(alignment: .leading) {
                             HStack {
                                 AsyncImage(url: recipe.strMealThumb){result in
-                                        result.resizable()
+                                    result.resizable()
                                         .scaledToFill()
                                 } placeholder: {
                                     ProgressView().progressViewStyle(.circular)
                                 }
                                 .frame(width: 140,height: 140)
-                                    .clipShape(RoundedRectangle(cornerRadius: 15.0))
+                                .clipShape(RoundedRectangle(cornerRadius: 15.0))
                                 VStack(alignment: .leading) {
                                     Text(recipe.strMeal)
                                         .font(.subheadline)
@@ -79,7 +85,7 @@ struct FavoritesView: View {
                                         .foregroundStyle(.darkGreyBase)
                                         .padding(.bottom, 5)
                                     
-
+                                    
                                     
                                     Text(recipe.strCategory)
                                         .font(.caption2)

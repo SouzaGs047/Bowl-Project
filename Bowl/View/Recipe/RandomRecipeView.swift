@@ -7,18 +7,16 @@
 import SwiftUI
 import SwiftData
 
-struct RecipeByIDView: View {
-    @StateObject var recipeModel = RecipeModel()
+struct RandomRecipeView: View {
+    @StateObject var randomRecipeModel = RecipeModel()
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [RecipeStorage]
     @State var isSaved = false
-    
-    let recipeID : String
-    
+    @State var hasFetched = false
     
     var body: some View {
-        VStack{
-            ForEach(recipeModel.recipesArray, id: \.idMeal) { recipe in
+        VStack {
+            ForEach(randomRecipeModel.recipesArray, id: \.idMeal) { recipe in
                 VStack{
                     ZStack{
                         GeometryReader { geometry in
@@ -39,7 +37,6 @@ struct RecipeByIDView: View {
                                     .padding(.top, 30)
                             }
                         }
-                        
                         ScrollView {
                             VStack{
                                 Spacer()
@@ -93,13 +90,13 @@ struct RecipeByIDView: View {
                                 .padding(.bottom, 30)
                                 .background(Color("FAFAFAColor"))
                                 .clipShape(UnevenRoundedRectangle(topLeadingRadius: 30, bottomLeadingRadius: 0, bottomTrailingRadius: 0, topTrailingRadius: 30, style: .continuous))
+                                
                             }
+                            
                         }
                         .scrollIndicators(.hidden)
                     }
-                    
                 }
-                
             }
         }
         .navigationTitle("Recipe Details")
@@ -107,58 +104,60 @@ struct RecipeByIDView: View {
         .toolbar {
             Button(action: {
                 if isSaved {
-                    removeItem(recipeId: recipeModel.recipesArray[0].idMeal)
+                    // Remove a receita do armazenamento se já estiver salva
+                    removeItem(recipeId: randomRecipeModel.recipesArray[0].idMeal)
                     isSaved = false
                 } else {
+                    // Adiciona a receita ao armazenamento
                     addItem(recipeToAdd: Recipe(
-                        idMeal: recipeModel.recipesArray[0].idMeal,
-                        strMeal: recipeModel.recipesArray[0].strMeal,
-                        strCategory: recipeModel.recipesArray[0].strCategory,
-                        strArea: recipeModel.recipesArray[0].strArea,
-                        strInstructions: recipeModel.recipesArray[0].strInstructions,
-                        strMealThumb: recipeModel.recipesArray[0].strMealThumb,
+                        idMeal: randomRecipeModel.recipesArray[0].idMeal,
+                        strMeal: randomRecipeModel.recipesArray[0].strMeal,
+                        strCategory: randomRecipeModel.recipesArray[0].strCategory,
+                        strArea: randomRecipeModel.recipesArray[0].strArea,
+                        strInstructions: randomRecipeModel.recipesArray[0].strInstructions,
+                        strMealThumb: randomRecipeModel.recipesArray[0].strMealThumb,
                         
                         
-                        strIngredient1: recipeModel.recipesArray[0].strIngredient1,
-                        strIngredient2: recipeModel.recipesArray[0].strIngredient2,
-                        strIngredient3: recipeModel.recipesArray[0].strIngredient3,
-                        strIngredient4: recipeModel.recipesArray[0].strIngredient4,
-                        strIngredient5: recipeModel.recipesArray[0].strIngredient5,
-                        strIngredient6: recipeModel.recipesArray[0].strIngredient6,
-                        strIngredient7: recipeModel.recipesArray[0].strIngredient7,
-                        strIngredient8: recipeModel.recipesArray[0].strIngredient8,
-                        strIngredient9: recipeModel.recipesArray[0].strIngredient9,
-                        strIngredient10: recipeModel.recipesArray[0].strIngredient10,
-                        strIngredient11: recipeModel.recipesArray[0].strIngredient11,
-                        strIngredient12: recipeModel.recipesArray[0].strIngredient12,
-                        strIngredient13: recipeModel.recipesArray[0].strIngredient13,
-                        strIngredient14: recipeModel.recipesArray[0].strIngredient14,
-                        strIngredient15: recipeModel.recipesArray[0].strIngredient15,
-                        strIngredient16: recipeModel.recipesArray[0].strIngredient16,
-                        strIngredient17: recipeModel.recipesArray[0].strIngredient17,
-                        strIngredient18: recipeModel.recipesArray[0].strIngredient18,
-                        strIngredient19: recipeModel.recipesArray[0].strIngredient19,
-                        strIngredient20: recipeModel.recipesArray[0].strIngredient20,
-                        strMeasure1: recipeModel.recipesArray[0].strMeasure1,
-                        strMeasure2: recipeModel.recipesArray[0].strMeasure2,
-                        strMeasure3: recipeModel.recipesArray[0].strMeasure3,
-                        strMeasure4: recipeModel.recipesArray[0].strMeasure4,
-                        strMeasure5: recipeModel.recipesArray[0].strMeasure5,
-                        strMeasure6: recipeModel.recipesArray[0].strMeasure6,
-                        strMeasure7: recipeModel.recipesArray[0].strMeasure7,
-                        strMeasure8: recipeModel.recipesArray[0].strMeasure8,
-                        strMeasure9: recipeModel.recipesArray[0].strMeasure9,
-                        strMeasure10: recipeModel.recipesArray[0].strMeasure10,
-                        strMeasure11: recipeModel.recipesArray[0].strMeasure11,
-                        strMeasure12: recipeModel.recipesArray[0].strMeasure12,
-                        strMeasure13: recipeModel.recipesArray[0].strMeasure13,
-                        strMeasure14: recipeModel.recipesArray[0].strMeasure14,
-                        strMeasure15: recipeModel.recipesArray[0].strMeasure15,
-                        strMeasure16: recipeModel.recipesArray[0].strMeasure16,
-                        strMeasure17: recipeModel.recipesArray[0].strMeasure17,
-                        strMeasure18: recipeModel.recipesArray[0].strMeasure18,
-                        strMeasure19: recipeModel.recipesArray[0].strMeasure19,
-                        strMeasure20: recipeModel.recipesArray[0].strMeasure20))
+                        strIngredient1: randomRecipeModel.recipesArray[0].strIngredient1,
+                        strIngredient2: randomRecipeModel.recipesArray[0].strIngredient2,
+                        strIngredient3: randomRecipeModel.recipesArray[0].strIngredient3,
+                        strIngredient4: randomRecipeModel.recipesArray[0].strIngredient4,
+                        strIngredient5: randomRecipeModel.recipesArray[0].strIngredient5,
+                        strIngredient6: randomRecipeModel.recipesArray[0].strIngredient6,
+                        strIngredient7: randomRecipeModel.recipesArray[0].strIngredient7,
+                        strIngredient8: randomRecipeModel.recipesArray[0].strIngredient8,
+                        strIngredient9: randomRecipeModel.recipesArray[0].strIngredient9,
+                        strIngredient10: randomRecipeModel.recipesArray[0].strIngredient10,
+                        strIngredient11: randomRecipeModel.recipesArray[0].strIngredient11,
+                        strIngredient12: randomRecipeModel.recipesArray[0].strIngredient12,
+                        strIngredient13: randomRecipeModel.recipesArray[0].strIngredient13,
+                        strIngredient14: randomRecipeModel.recipesArray[0].strIngredient14,
+                        strIngredient15: randomRecipeModel.recipesArray[0].strIngredient15,
+                        strIngredient16: randomRecipeModel.recipesArray[0].strIngredient16,
+                        strIngredient17: randomRecipeModel.recipesArray[0].strIngredient17,
+                        strIngredient18: randomRecipeModel.recipesArray[0].strIngredient18,
+                        strIngredient19: randomRecipeModel.recipesArray[0].strIngredient19,
+                        strIngredient20: randomRecipeModel.recipesArray[0].strIngredient20,
+                        strMeasure1: randomRecipeModel.recipesArray[0].strMeasure1,
+                        strMeasure2: randomRecipeModel.recipesArray[0].strMeasure2,
+                        strMeasure3: randomRecipeModel.recipesArray[0].strMeasure3,
+                        strMeasure4: randomRecipeModel.recipesArray[0].strMeasure4,
+                        strMeasure5: randomRecipeModel.recipesArray[0].strMeasure5,
+                        strMeasure6: randomRecipeModel.recipesArray[0].strMeasure6,
+                        strMeasure7: randomRecipeModel.recipesArray[0].strMeasure7,
+                        strMeasure8: randomRecipeModel.recipesArray[0].strMeasure8,
+                        strMeasure9: randomRecipeModel.recipesArray[0].strMeasure9,
+                        strMeasure10: randomRecipeModel.recipesArray[0].strMeasure10,
+                        strMeasure11: randomRecipeModel.recipesArray[0].strMeasure11,
+                        strMeasure12: randomRecipeModel.recipesArray[0].strMeasure12,
+                        strMeasure13: randomRecipeModel.recipesArray[0].strMeasure13,
+                        strMeasure14: randomRecipeModel.recipesArray[0].strMeasure14,
+                        strMeasure15: randomRecipeModel.recipesArray[0].strMeasure15,
+                        strMeasure16: randomRecipeModel.recipesArray[0].strMeasure16,
+                        strMeasure17: randomRecipeModel.recipesArray[0].strMeasure17,
+                        strMeasure18: randomRecipeModel.recipesArray[0].strMeasure18,
+                        strMeasure19: randomRecipeModel.recipesArray[0].strMeasure19,
+                        strMeasure20: randomRecipeModel.recipesArray[0].strMeasure20))
                     
                     
                     isSaved = true
@@ -171,9 +170,10 @@ struct RecipeByIDView: View {
             }).frame(width: 70, height: 50)
         }
         .onAppear {
-            recipeModel.fetchByID(id: recipeID)
-            isSaved = isRecipeSaved()
-            
+            if (!hasFetched) {
+                randomRecipeModel.fetchRandom()
+                hasFetched = true
+            }
         }
     }
     
@@ -243,6 +243,10 @@ struct RecipeByIDView: View {
     
     // MARK: CHECK IF RECIPE IS SAVED
     private func isRecipeSaved() -> Bool {
-        items.contains { $0.idMeal == recipeID}
+        items.contains { $0.idMeal == randomRecipeModel.recipesArray[0].idMeal}
     }
+}
+
+#Preview {
+    RandomRecipeView()
 }

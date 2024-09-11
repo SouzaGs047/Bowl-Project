@@ -1,9 +1,8 @@
-//
-//  SplashScreenView.swift
-//  GP4-Challenge-2
-//
-//  Created by JOSE ELIAS GOMES CAMARGO on 30/08/24.
-//
+/* Bowl, a project by:
+ Amanda Caroline
+ Giulia Cacciaguerra
+ Gustavo Souza
+ José Elias */
 
 import SwiftUI
 
@@ -25,8 +24,6 @@ struct SplashScreenView: View {
                     .scaledToFill()
                     .frame(minWidth: 0)
                     .edgesIgnoringSafeArea(.all)
-                
-                
                 
                 VStack {
                     Spacer()
