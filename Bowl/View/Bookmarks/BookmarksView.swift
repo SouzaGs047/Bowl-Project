@@ -7,7 +7,7 @@
 import SwiftUI
 import SwiftData
 
-struct FavoritesView: View {
+struct BookmarksView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [RecipeStorage]
     

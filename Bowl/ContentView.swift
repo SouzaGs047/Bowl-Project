@@ -8,10 +8,10 @@ import SwiftUI
 import SwiftData
 import UIKit
 
+
 struct ContentView: View {
     @Environment(\.modelContext) private var modelContext
     @Query private var items: [RecipeStorage]
-    
     
     @State var selectedTab = 1
     
@@ -48,7 +48,7 @@ struct ContentView: View {
             .tag(3)
             
             NavigationStack {
-                FavoritesView()
+                BookmarksView()
                 
             }.tabItem() {
                 Image(selectedTab == 4 ? "bookmark.fill" : "bookmark")
